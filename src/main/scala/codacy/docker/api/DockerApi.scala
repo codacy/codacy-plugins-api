@@ -1,16 +1,24 @@
 package codacy.docker.api
 
-sealed trait Source extends Any{
-  def path:String
+sealed trait Source extends Any {
+  def path: String
+
   override def toString: String = path
 }
 
-object Source{
+object Source {
+
   case class Directory(path: String) extends AnyVal with Source
+
   case class File(path: String) extends AnyVal with Source
+
+  case class Line(value: Int) extends AnyVal {
+    override def toString: String = value.toString
+  }
+
 }
 
-case class ErrorMessage(value: String) extends AnyVal{
+case class ErrorMessage(value: String) extends AnyVal {
   override def toString: String = value
 }
 

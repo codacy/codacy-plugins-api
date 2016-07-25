@@ -9,7 +9,7 @@ trait Tool {
 
 object Tool {
 
-  case class Name(value: String) extends AnyVal{
+  case class Name(value: String) extends AnyVal {
     override def toString: String = value
   }
 
@@ -17,4 +17,5 @@ object Tool {
 
   //there are other fields like name and description but i don't care about them inside the tool
   case class Specification(name: Tool.Name, patterns: Set[Pattern.Specification])
+
 }

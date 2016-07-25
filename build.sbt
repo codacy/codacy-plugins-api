@@ -26,7 +26,7 @@ publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
-startYear := Some(2015)
+startYear := Some(2016)
 
 description := "Library to develop Codacy tool plugins"
 
