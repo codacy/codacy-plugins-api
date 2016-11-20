@@ -24,3 +24,4 @@ case class ErrorMessage(value: String) extends AnyVal {
 
 case class Configuration(tools: Set[Tool.Configuration], files: Option[Set[Source.File]])
 
+case class AlternativeConfiguration(enabled: Boolean, include_paths: Option[Set[Source.File]])
