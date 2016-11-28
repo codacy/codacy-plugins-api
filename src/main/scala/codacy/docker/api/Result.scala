@@ -4,11 +4,29 @@ sealed trait Result
 
 object Result {
 
+  case class Lines(begin: Source.Line, end: Option[Source.Line])
+
+  case class Position(line: Source.Line, column: Option[Int])
+
+  case class Positions(begin: Position, end: Option[Position])
+
+  case class Location(path: Source.File, lines: Option[Lines], positions: Option[Positions])
+
   case class Message(value: String) extends AnyVal {
     override def toString: String = value
   }
 
   case class Issue(file: Source.File, message: Result.Message, patternId: Pattern.Id, line: Source.Line) extends Result
+
+  case class ExtendedIssue(
+                            check_name: Pattern.Id,
+                            description: Result.Message,
+                            content: Option[String],
+                            categories: List[String],
+                            location: Location,
+                            remediation_points: Option[Int],
+                            severity: Option[String]
+                          ) extends Result
 
   case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
 
