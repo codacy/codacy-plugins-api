@@ -21,10 +21,8 @@ object Result {
   case class ExtendedIssue(
                             check_name: Pattern.Id,
                             description: Result.Message,
-                            content: Option[String],
                             categories: List[String],
                             location: Location,
-                            remediation_points: Option[Int],
                             severity: Option[String]
                           ) extends Result
 
