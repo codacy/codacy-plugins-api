@@ -8,7 +8,8 @@ object Pattern {
 
   case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
 
-  case class Specification(patternId: Pattern.Id, level: Result.Level, category: Category, parameters: Option[Set[Parameter.Specification]])
+  case class Specification(patternId: Pattern.Id, level: Result.Level, category: Category,
+                           parameters: Option[Set[Parameter.Specification]], languages: Option[Set[Language]] = None)
 
   type Category = Category.Value
 
@@ -17,5 +18,7 @@ object Pattern {
     //Deprecated
     Complexity, BestPractice, Comprehensibility, Duplication, Documentation = Value
   }
+
+  case class Language(name: String)
 
 }
