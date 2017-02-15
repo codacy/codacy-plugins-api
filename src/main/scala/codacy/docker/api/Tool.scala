@@ -15,7 +15,7 @@ object Tool {
 
   case class Configuration(name: Tool.Name, patterns: Option[List[Pattern.Definition]])
 
-  //there are other fields like name and description but i don't care about them inside the tool
+  // There are other fields like name and description but i don't care about them inside the tool
   case class Specification(name: Tool.Name, patterns: Set[Pattern.Specification])
 
 }
