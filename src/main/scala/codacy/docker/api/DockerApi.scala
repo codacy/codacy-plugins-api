@@ -22,6 +22,15 @@ case class ErrorMessage(value: String) extends AnyVal {
   override def toString: String = value
 }
 
-case class Configuration(tools: Set[Tool.Configuration], files: Option[Set[Source.File]])
+case class Configuration(tools: Set[Tool.Configuration], files: Option[Set[Source.File]],
+                         options: Map[Configuration.Key, Configuration.Value])
+
+object Configuration {
+
+  case class Key(value: String) extends AnyVal
+
+  trait Value extends Any
+
+}
 
 case class AlternativeConfiguration(enabled: Boolean, include_paths: Option[Set[Source.File]])
