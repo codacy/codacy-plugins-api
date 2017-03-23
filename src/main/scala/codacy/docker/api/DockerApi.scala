@@ -23,12 +23,14 @@ case class ErrorMessage(value: String) extends AnyVal {
 }
 
 case class Configuration(tools: Set[Tool.Configuration], files: Option[Set[Source.File]],
-                         options: Map[Configuration.Key, Configuration.Value])
+                         options: Option[Map[Configuration.Key, Configuration.Value]])
 
 object Configuration {
 
   case class Key(value: String) extends AnyVal
 
+  // JsonEncoded!
+  // case class Value(value:Any) extends AnyVal
   trait Value extends Any
 
 }
