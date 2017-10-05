@@ -20,6 +20,6 @@ object Tool {
 
   case class Configuration(name: Tool.Name, patterns: Option[List[Pattern.Definition]])
 
-  case class Specification(name: Tool.Name, version: Tool.Version, patterns: Set[Pattern.Specification])
+  case class Specification(name: Tool.Name, version: Option[Tool.Version], patterns: Set[Pattern.Specification])
 
 }
