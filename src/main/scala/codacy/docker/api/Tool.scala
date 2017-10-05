@@ -14,9 +14,12 @@ object Tool {
     override def toString: String = value
   }
 
+  case class Version(value: String) extends AnyVal {
+    override def toString: String = value
+  }
+
   case class Configuration(name: Tool.Name, patterns: Option[List[Pattern.Definition]])
 
-  // There are other fields like name and description but i don't care about them inside the tool
-  case class Specification(name: Tool.Name, patterns: Set[Pattern.Specification])
+  case class Specification(name: Tool.Name, version: Tool.Version, patterns: Set[Pattern.Specification])
 
 }
