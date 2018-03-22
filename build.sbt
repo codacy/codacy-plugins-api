@@ -1,10 +1,10 @@
 name := """codacy-plugins-api"""
 
-version := "0.1.2"
+version := "1.0.0-SNAPSHOT"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
-crossScalaVersions := Seq("2.10.6", scalaVersion.value)
+crossScalaVersions := Seq("2.10.6", scalaVersion.value, "2.12.4")
 
 organization := "com.codacy"
 
