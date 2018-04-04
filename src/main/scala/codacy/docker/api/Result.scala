@@ -18,13 +18,12 @@ object Result {
 
   case class Issue(file: Source.File, message: Result.Message, patternId: Pattern.Id, line: Source.Line) extends Result
 
-  case class ExtendedIssue(
-                            check_name: Pattern.Id,
-                            description: Result.Message,
-                            categories: List[String],
-                            location: Location,
-                            severity: Option[String]
-                          ) extends Result
+  case class ExtendedIssue(check_name: Pattern.Id,
+                           description: Result.Message,
+                           categories: List[String],
+                           location: Location,
+                           severity: Option[String])
+      extends Result
 
   case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
 
@@ -37,4 +36,3 @@ object Result {
   }
 
 }
-
