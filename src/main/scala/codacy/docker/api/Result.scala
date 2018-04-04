@@ -30,9 +30,9 @@ object Result {
   type Level = Level.Value
 
   object Level extends Enumeration {
-    val Err = Value("Error")
-    val Warn = Value("Warning")
-    val Info = Value("Info")
+    val Err: Value = Value("Error")
+    val Warn: Value = Value("Warning")
+    val Info: Value = Value("Info")
   }
 
 }

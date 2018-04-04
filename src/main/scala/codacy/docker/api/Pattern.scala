@@ -1,5 +1,7 @@
 package codacy.docker.api
 
+import com.codacy.api.dtos.Language
+
 object Pattern {
 
   case class Id(value: String) extends AnyVal {
@@ -38,7 +40,5 @@ object Pattern {
     val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, //Deprecated
     Complexity, BestPractice, Comprehensibility, Duplication, Documentation = Value
   }
-
-  case class Language(name: String)
 
 }
