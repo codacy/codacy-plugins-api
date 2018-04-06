@@ -59,6 +59,16 @@ object Languages {
     }
   }
 
+  def filter(files: Set[String],
+             languages: Set[Language],
+             customExtensions: Map[Language, Set[String]] = Map.empty[Language, Set[String]]): Set[String] = {
+    val allExtensions = languages.flatMap { language =>
+      customExtensions.getOrElse(language, extensionsByLanguage.getOrElse(language, Set.empty))
+    }
+
+    files.filter(file => allExtensions.exists(e => file.endsWith(e)))
+  }
+
   val all: Set[Language] = Set(Javascript,
                                Scala,
                                CSS,
