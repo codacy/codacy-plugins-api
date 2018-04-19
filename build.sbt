@@ -16,7 +16,9 @@ publishMavenStyle := true
 
 publishArtifact in Test := false
 
-pomIncludeRepository := { _ => false }
+pomIncludeRepository := { _ =>
+  false
+}
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
