@@ -1,4 +1,9 @@
 # codacy-plugins-api
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/23d335c474ce4317ad35b19cb90a1f35)](https://www.codacy.com/app/Codacy/codacy-plugins-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-plugins-api&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/23d335c474ce4317ad35b19cb90a1f35)](https://www.codacy.com/app/Codacy/codacy-plugins-api?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-plugins-api&utm_campaign=Badge_Coverage)
+[![CircleCI](https://circleci.com/gh/codacy/codacy-plugins-api.svg?style=svg)](https://circleci.com/gh/codacy/codacy-plugins-api)
+
 A dependency free api for codacy-engines
 
 This repository is ment to be the interface between 

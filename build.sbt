@@ -8,6 +8,8 @@ crossScalaVersions := Seq("2.10.6", scalaVersion.value, "2.12.4")
 
 organization := "com.codacy"
 
+libraryDependencies += "org.specs2" %% "specs2-core" % "4.0.2" % Test
+
 organizationName := "Codacy"
 
 organizationHomepage := Some(new URL("https://www.codacy.com"))

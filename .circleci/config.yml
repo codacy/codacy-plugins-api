@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hseeberger/scala-sbt:8u151-2.12.5-1.1.2
+    working_directory: ~/workdir
+    steps:
+      - checkout
+      - restore_cache:
+          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+      - run: sbt compile
+      - run: sbt test:compile
+      - save_cache:
+          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+          paths: [ "~/.m2", "~/.ivy2", "~/.cache/coursier" ]
+      - run: sbt coverage test
+      - run: sbt coverageReport
+      - run: sbt coverageAggregate
+      - run: sbt codacyCoverage
