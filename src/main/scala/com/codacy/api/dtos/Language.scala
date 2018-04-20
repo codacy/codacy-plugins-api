@@ -39,7 +39,7 @@ object Languages {
     lazy val languageByCustomExtension: List[(String, Language)] = {
       val customExtensionsMap: Map[Language, Set[String]] = customExtensions.map {
         case (lang, exts) =>
-          (lang, extensionsByLanguage.getOrElse(lang, Set.empty) ++ exts)
+          (lang, exts.to[Set] ++ extensionsByLanguage.getOrElse(lang, Set.empty))
       }(collection.breakOut)
 
       customExtensionsMap.flatMap {
@@ -63,7 +63,8 @@ object Languages {
              languages: Set[Language],
              customExtensions: Map[Language, Set[String]] = Map.empty[Language, Set[String]]): Set[String] = {
     val allExtensions = languages.flatMap { language =>
-      customExtensions.getOrElse(language, extensionsByLanguage.getOrElse(language, Set.empty))
+      customExtensions.getOrElse(language, Set.empty) ++
+        extensionsByLanguage.getOrElse(language, Set.empty)
     }
 
     files.filter(file => allExtensions.exists(e => file.endsWith(e)))
