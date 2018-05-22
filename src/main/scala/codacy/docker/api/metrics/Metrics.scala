@@ -11,7 +11,7 @@ case class FileMetrics(filename: String,
                        nrClasses: Option[Int] = None,
                        lineComplexities: Set[LineComplexity] = Set.empty)
 
-//TODO: should I remove the Class and Method metrics, since we only using their total number?
+//TODO: should I remove the Class and Method metrics, since we're only using their total number?
 //or should I remove some of their attributes?
 case class ClassMetrics(className: String,
                         complexity: Option[Long] = None,
