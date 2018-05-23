@@ -7,7 +7,7 @@ import scala.util.Try
 
 trait MetricsTool {
   def apply(source: Source.Directory,
-            language: Language,
+            language: Option[Language],
             files: Option[Set[Source.File]],
             options: Map[MetricsConfiguration.Key, MetricsConfiguration.Value]): Try[List[FileMetrics]]
 }
