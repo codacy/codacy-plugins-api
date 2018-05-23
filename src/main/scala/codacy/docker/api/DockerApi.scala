@@ -1,5 +1,7 @@
 package codacy.docker.api
 
+import com.codacy.api.dtos.Language
+
 sealed trait Source extends Any {
   def path: String
 
@@ -37,3 +39,14 @@ object Configuration {
 }
 
 case class AlternativeConfiguration(enabled: Boolean, include_paths: Option[Set[Source.File]])
+
+case class MetricsConfiguration(files: Option[Set[Source.File]],
+                                language: Language,
+                                options: Option[Map[MetricsConfiguration.Key, MetricsConfiguration.Value]])
+
+object MetricsConfiguration {
+
+  case class Key(value: String) extends AnyVal
+
+  trait Value extends Any
+}
