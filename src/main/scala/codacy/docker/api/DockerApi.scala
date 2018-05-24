@@ -41,7 +41,7 @@ object Configuration {
 case class AlternativeConfiguration(enabled: Boolean, include_paths: Option[Set[Source.File]])
 
 case class MetricsConfiguration(files: Option[Set[Source.File]],
-                                language: Language,
+                                language: Option[Language],
                                 options: Option[Map[MetricsConfiguration.Key, MetricsConfiguration.Value]])
 
 object MetricsConfiguration {

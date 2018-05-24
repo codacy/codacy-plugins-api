@@ -1,6 +1,5 @@
 package codacy.docker.api.metrics
 
-
 case class FileMetrics(filename: String,
                        complexity: Option[Int] = None,
                        loc: Option[Int] = None,
@@ -10,4 +9,3 @@ case class FileMetrics(filename: String,
                        lineComplexities: Set[LineComplexity] = Set.empty)
 
 case class LineComplexity(line: Int, value: Int)
-
