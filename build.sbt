@@ -8,7 +8,9 @@ crossScalaVersions := Seq(scalaVersion.value, "2.12.4")
 
 organization := "com.codacy"
 
-libraryDependencies += "org.specs2" %% "specs2-core" % "4.0.2" % Test
+libraryDependencies ++= Seq(
+  "org.specs2" %% "specs2-core" % "4.0.2" % Test
+)
 
 organizationName := "Codacy"
 

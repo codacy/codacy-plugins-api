@@ -50,3 +50,13 @@ object MetricsConfiguration {
 
   trait Value extends Any
 }
+
+case class DuplicationConfiguration(language: Option[Language],
+                                    params: Option[Map[DuplicationConfiguration.Key, DuplicationConfiguration.Value]])
+
+object DuplicationConfiguration {
+
+  case class Key(value: String) extends AnyVal
+
+  trait Value extends Any
+}
