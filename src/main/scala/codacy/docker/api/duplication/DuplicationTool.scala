@@ -1,7 +1,5 @@
 package codacy.docker.api.duplication
 
-import java.nio.file.Path
-
 import codacy.docker.api.{DuplicationConfiguration, Source}
 import com.codacy.api.dtos.Language
 
