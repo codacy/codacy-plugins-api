@@ -13,7 +13,4 @@ jobs:
       - save_cache:
           key: scala-library-dependencies-{{ checksum "build.sbt" }}
           paths: [ "~/.m2", "~/.ivy2", "~/.cache/coursier" ]
-      - run: sbt coverage test
-      - run: sbt coverageReport
-      - run: sbt coverageAggregate
-      - run: sbt codacyCoverage
+      - run: ./scripts/test.sh
