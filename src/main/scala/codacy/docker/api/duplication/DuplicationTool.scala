@@ -17,8 +17,4 @@ object DuplicationTool {
     override def toString: String = value
   }
 
-  case class Version(value: String) extends AnyVal {
-    override def toString: String = value
-  }
-
 }
