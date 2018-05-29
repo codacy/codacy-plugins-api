@@ -60,3 +60,5 @@ object DuplicationConfiguration {
 
   trait Value extends Any
 }
+
+case class CodacyConfiguration(duplication: DuplicationConfiguration)
