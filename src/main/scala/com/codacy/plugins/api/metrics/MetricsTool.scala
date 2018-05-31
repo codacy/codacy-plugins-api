@@ -1,7 +1,7 @@
-package codacy.docker.api.metrics
+package com.codacy.plugins.api.metrics
 
-import codacy.docker.api.{MetricsConfiguration, Source}
-import com.codacy.api.dtos.Language
+import com.codacy.plugins.api.languages.Language
+import com.codacy.plugins.api.{MetricsConfiguration, Source}
 
 import scala.util.Try
 

@@ -1,4 +1,4 @@
-package codacy.docker.api
+package com.codacy.plugins.api
 
 object Parameter {
 
