@@ -1,7 +1,7 @@
-package codacy.docker.api.duplication
+package com.codacy.plugins.api.duplication
 
-import codacy.docker.api.{DuplicationConfiguration, Source}
-import com.codacy.api.dtos.Language
+import com.codacy.plugins.api.languages.Language
+import com.codacy.plugins.api.{DuplicationConfiguration, Source}
 
 import scala.util.Try
 
