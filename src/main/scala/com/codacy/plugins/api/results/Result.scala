@@ -1,4 +1,6 @@
-package codacy.docker.api
+package com.codacy.plugins.api.results
+
+import com.codacy.plugins.api.{ErrorMessage, Source}
 
 sealed trait Result
 

@@ -1,6 +1,6 @@
-package codacy.docker.api
+package com.codacy.plugins.api.results
 
-import com.codacy.api.dtos.Language
+import com.codacy.plugins.api.languages.Language
 
 object Pattern {
 
