@@ -7,7 +7,7 @@
 
 A dependency free api for codacy-engines
 
-This repository is ment to be the interface between
+This repository is meant to be the interface between
 
 * Codacy analysis tools (currently via [codacy-engine-scala-seed](https://github.com/codacy/codacy-engine-scala-seed))
 * Codacy duplication tools (currently via [codacy-duplication-scala-seed](https://github.com/codacy/codacy-duplication-scala-seed))
