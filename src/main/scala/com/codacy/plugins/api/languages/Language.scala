@@ -1,4 +1,4 @@
-package com.codacy.api.dtos
+package com.codacy.plugins.api.languages
 
 sealed abstract class Language(val extensions: Set[String],
                                val overriddenName: Option[String] = Option.empty[String],

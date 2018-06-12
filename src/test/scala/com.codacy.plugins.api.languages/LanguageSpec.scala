@@ -1,4 +1,4 @@
-package com.codacy.api.dtos
+package com.codacy.plugins.api.languages
 
 import org.specs2.control.NoLanguageFeatures
 import org.specs2.mutable.Specification
