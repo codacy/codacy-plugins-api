@@ -1,10 +1,10 @@
 package com.codacy.plugins.api.results
 
-import com.codacy.plugins.api.{ErrorMessage, Source}
+import com.codacy.plugins.api._
 
-sealed trait Result
+sealed trait ToolResult extends Result
 
-object Result {
+object ToolResult {
 
   case class Lines(begin: Source.Line, end: Option[Source.Line])
 
@@ -18,16 +18,20 @@ object Result {
     override def toString: String = value
   }
 
-  case class Issue(file: Source.File, message: Result.Message, patternId: Pattern.Id, line: Source.Line) extends Result
+  case class Issue(file: Source.File, message: Message, patternId: Pattern.Id, line: Source.Line) extends ToolResult
 
   case class ExtendedIssue(check_name: Pattern.Id,
-                           description: Result.Message,
+                           description: Message,
                            categories: List[String],
                            location: Location,
                            severity: Option[String])
-      extends Result
+      extends ToolResult
 
-  case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
+  case class FileError(file: Source.File, message: Option[ErrorMessage]) extends ToolResult
+
+  case class ToolProblem(message: ErrorMessage, file: Option[Source.File], reason: AnalysisProblem.Reason)
+      extends AnalysisProblem
+      with ToolResult
 
   type Level = Level.Value
 

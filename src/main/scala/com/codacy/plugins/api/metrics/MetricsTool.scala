@@ -9,7 +9,7 @@ trait MetricsTool {
   def apply(source: Source.Directory,
             language: Option[Language],
             files: Option[Set[Source.File]],
-            options: Map[Options.Key, Options.Value]): Try[List[FileMetrics]]
+            options: Map[Options.Key, Options.Value]): Try[List[MetricsResult]]
 }
 
 object MetricsTool {

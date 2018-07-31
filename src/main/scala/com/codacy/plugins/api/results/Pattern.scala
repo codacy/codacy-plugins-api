@@ -29,7 +29,7 @@ object Pattern {
   case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
 
   case class Specification(patternId: Pattern.Id,
-                           level: Result.Level,
+                           level: ToolResult.Level,
                            category: Category,
                            parameters: Option[Set[Parameter.Specification]],
                            languages: Option[Set[Language]] = None)
