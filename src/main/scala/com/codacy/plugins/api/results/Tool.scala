@@ -8,7 +8,7 @@ trait Tool {
   def apply(source: Source.Directory,
             configuration: Option[List[Pattern.Definition]],
             files: Option[Set[Source.File]],
-            options: Map[Options.Key, Options.Value])(implicit specification: Tool.Specification): Try[List[Result]]
+            options: Map[Options.Key, Options.Value])(implicit specification: Tool.Specification): Try[List[ToolResult]]
 }
 
 object Tool {
@@ -21,7 +21,10 @@ object Tool {
     override def toString: String = value
   }
 
-  case class Specification(name: Tool.Name, version: Option[Tool.Version], patterns: Set[Pattern.Specification])
+  case class Specification(name: Tool.Name,
+                           version: Option[Tool.Version],
+                           patterns: Set[Pattern.Specification],
+                           codacyIssueToolApiVersion: Option[Int])
 
   case class Configuration(name: Tool.Name, patterns: Option[List[Pattern.Definition]])
 

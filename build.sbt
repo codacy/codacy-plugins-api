@@ -8,12 +8,10 @@ crossScalaVersions := Seq(scalaVersion.value, "2.12.4")
 libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "4.0.2" % Test)
 
 // Sonatype repository settings
-credentials += Credentials(
-  "Sonatype Nexus Repository Manager",
-  "oss.sonatype.org",
-  sys.env.getOrElse("SONATYPE_USER", "username"),
-  sys.env.getOrElse("SONATYPE_PASSWORD", "password")
-)
+credentials += Credentials("Sonatype Nexus Repository Manager",
+                           "oss.sonatype.org",
+                           sys.env.getOrElse("SONATYPE_USER", "username"),
+                           sys.env.getOrElse("SONATYPE_PASSWORD", "password"))
 publishMavenStyle := true
 publishArtifact in Test := false
 pomIncludeRepository := { _ =>

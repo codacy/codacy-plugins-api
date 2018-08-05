@@ -8,7 +8,7 @@ import scala.util.Try
 trait DuplicationTool {
   def apply(path: Source.Directory,
             language: Option[Language],
-            options: Map[Options.Key, Options.Value]): Try[List[DuplicationClone]]
+            options: Map[Options.Key, Options.Value]): Try[List[DuplicationResult]]
 }
 
 object DuplicationTool {
