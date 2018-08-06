@@ -1,4 +1,4 @@
-package com.codacy.plugins.api.metrics
+package com.codacy.plugins.api.docker.v1
 
 case class FileMetrics(filename: String,
                        complexity: Option[Int] = None,

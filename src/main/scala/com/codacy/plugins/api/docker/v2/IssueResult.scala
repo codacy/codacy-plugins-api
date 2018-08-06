@@ -1,10 +1,12 @@
-package com.codacy.plugins.api.results
+package com.codacy.plugins.api.docker.v2
 
+import com.codacy.plugins.api.docker.v2
+import com.codacy.plugins.api.results.Pattern
 import com.codacy.plugins.api.{ErrorMessage, Source}
 
-sealed trait Result
+sealed trait IssueResult extends Result
 
-object Result {
+object IssueResult {
 
   case class Lines(begin: Source.Line, end: Option[Source.Line])
 
@@ -18,18 +20,11 @@ object Result {
     override def toString: String = value
   }
 
-  case class Issue(file: Source.File, message: Result.Message, patternId: Pattern.Id, line: Source.Line) extends Result
+  case class Issue(file: Source.File, message: Message, patternId: Pattern.Id, line: Source.Line) extends IssueResult
 
-  case class ExtendedIssue(check_name: Pattern.Id,
-                           description: Result.Message,
-                           categories: List[String],
-                           location: Location,
-                           severity: Option[String])
-      extends Result
-
-  case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
-
-  type Level = Level.Value
+  case class Problem(message: ErrorMessage, file: Option[Source.File], reason: v2.Problem.Reason)
+      extends v2.Problem
+      with IssueResult
 
   object Level extends Enumeration {
     val Err: Value = Value("Error")

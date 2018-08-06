@@ -6,10 +6,10 @@ import com.codacy.plugins.api.{Options, Source}
 import scala.util.Try
 
 trait MetricsTool {
-  def apply(source: Source.Directory,
-            language: Option[Language],
-            files: Option[Set[Source.File]],
-            options: Map[Options.Key, Options.Value]): Try[List[FileMetrics]]
+  def apply[T](source: Source.Directory,
+               language: Option[Language],
+               files: Option[Set[Source.File]],
+               options: Map[Options.Key, Options.Value]): Try[List[T]]
 }
 
 object MetricsTool {

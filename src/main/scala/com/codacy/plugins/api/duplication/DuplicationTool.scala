@@ -5,10 +5,10 @@ import com.codacy.plugins.api.{Options, Source}
 
 import scala.util.Try
 
-trait DuplicationTool {
+trait DuplicationTool[T] {
   def apply(path: Source.Directory,
             language: Option[Language],
-            options: Map[Options.Key, Options.Value]): Try[List[DuplicationClone]]
+            options: Map[Options.Key, Options.Value]): Try[List[T]]
 }
 
 object DuplicationTool {
