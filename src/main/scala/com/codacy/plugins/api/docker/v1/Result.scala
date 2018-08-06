@@ -30,12 +30,4 @@ object Result {
 
   case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
 
-  type Level = Level.Value
-
-  object Level extends Enumeration {
-    val Err: Value = Value("Error")
-    val Warn: Value = Value("Warning")
-    val Info: Value = Value("Info")
-  }
-
 }
