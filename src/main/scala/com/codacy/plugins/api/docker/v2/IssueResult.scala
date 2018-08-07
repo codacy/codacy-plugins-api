@@ -26,10 +26,4 @@ object IssueResult {
       extends v2.Problem
       with IssueResult
 
-  object Level extends Enumeration {
-    val Err: Value = Value("Error")
-    val Warn: Value = Value("Warning")
-    val Info: Value = Value("Info")
-  }
-
 }
