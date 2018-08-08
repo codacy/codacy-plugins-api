@@ -29,12 +29,16 @@ object Pattern {
   case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
 
   case class Specification(patternId: Pattern.Id,
-                           level: Result.Level,
-                           category: Category,
+                           level: Level.Value,
+                           category: Category.Value,
                            parameters: Option[Set[Parameter.Specification]],
                            languages: Option[Set[Language]] = None)
 
-  type Category = Category.Value
+  object Level extends Enumeration {
+    val Err: Value = Value("Error")
+    val Warn: Value = Value("Warning")
+    val Info: Value = Value("Info")
+  }
 
   object Category extends Enumeration {
     val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, //Deprecated

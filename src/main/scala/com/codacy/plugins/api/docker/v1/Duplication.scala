@@ -1,4 +1,4 @@
-package com.codacy.plugins.api.duplication
+package com.codacy.plugins.api.docker.v1
 
 case class DuplicationCloneFile(filePath: String, startLine: Int, endLine: Int)
 

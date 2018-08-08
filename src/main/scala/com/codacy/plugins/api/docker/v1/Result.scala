@@ -1,5 +1,6 @@
-package com.codacy.plugins.api.results
+package com.codacy.plugins.api.docker.v1
 
+import com.codacy.plugins.api.results.Pattern
 import com.codacy.plugins.api.{ErrorMessage, Source}
 
 sealed trait Result
@@ -28,13 +29,5 @@ object Result {
       extends Result
 
   case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
-
-  type Level = Level.Value
-
-  object Level extends Enumeration {
-    val Err: Value = Value("Error")
-    val Warn: Value = Value("Warning")
-    val Info: Value = Value("Info")
-  }
 
 }
