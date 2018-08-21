@@ -119,6 +119,8 @@ object Languages {
                                Prolog,
                                Julia,
                                Kotlin,
+                               Powershell,
+                               Solidity,
                                OCaml)
 
   // Support startdate: always
@@ -218,9 +220,14 @@ object Languages {
   // Support startdate: September 2017
   case object Kotlin extends Language(extensions = Set(".kt", ".kts"))
 
-  // Soon
-
+  // Support startdate: June 2018
   case object Elixir extends Language(extensions = Set(".ex", ".exs"))
+
+  // Support startdate: August 2018
+  case object Powershell
+      extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
+
+  // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
 
@@ -267,5 +274,7 @@ object Languages {
   case object Julia extends Language(extensions = Set(".jl"))
 
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
+
+  case object Solidity extends Language(extensions = Set(".sol"))
 
 }
