@@ -119,6 +119,7 @@ object Languages {
                                Prolog,
                                Julia,
                                Kotlin,
+                               Powershell,
                                OCaml)
 
   // Support startdate: always
@@ -217,6 +218,10 @@ object Languages {
 
   // Support startdate: September 2017
   case object Kotlin extends Language(extensions = Set(".kt", ".kts"))
+
+  // Support startdate: August 2018
+  case object Powershell
+      extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
 
   // Soon
 
