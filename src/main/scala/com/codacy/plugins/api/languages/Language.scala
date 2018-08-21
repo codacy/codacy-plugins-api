@@ -120,6 +120,7 @@ object Languages {
                                Julia,
                                Kotlin,
                                Powershell,
+                               Solidity,
                                OCaml)
 
   // Support startdate: always
@@ -272,5 +273,7 @@ object Languages {
   case object Julia extends Language(extensions = Set(".jl"))
 
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
+
+  case object Solidity extends Language(extensions = Set(".sol"))
 
 }
