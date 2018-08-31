@@ -124,7 +124,7 @@ object Languages {
                                OCaml)
 
   // Support startdate: always
-  case object Javascript extends Language(extensions = Set(".js", ".jsx"))
+  case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue"))
 
   case object Scala extends Language(extensions = Set(".scala"))
 
