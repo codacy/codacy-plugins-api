@@ -121,7 +121,8 @@ object Languages {
                                Kotlin,
                                Powershell,
                                Solidity,
-                               OCaml)
+                               OCaml,
+                               Markdown)
 
   // Support startdate: always
   case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue"))
@@ -226,6 +227,10 @@ object Languages {
   // Support startdate: August 2018
   case object Powershell
       extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
+
+  // Support startdate: September 2018
+  case object Markdown
+      extends Language(extensions = Set("md", "markdown", "mdown", "mkdn", "mkd", "mdwn", "mkdown", "ron"))
 
   // Soon
 
