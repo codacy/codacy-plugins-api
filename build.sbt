@@ -20,8 +20,8 @@ ThisBuild / organizationHomepage := Some(url("https://www.codacy.com"))
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
-    url("https://github.com/your-account/your-project"),
-    "scm:git@github.com:your-account/your-project.git"
+    url("https://github.com/codacy/codacy-plugins-api"),
+    "scm:git@github.com:codacy/codacy-plugins-api"
   )
 )
 ThisBuild / developers := List(
