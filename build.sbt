@@ -19,13 +19,8 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ =>
   false
 }
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (version.value.trim.endsWith("SNAPSHOT"))
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
+// Add the default sonatype repository setting
+publishTo := sonatypePublishTo.value
 
 organizationName := "Codacy"
 organizationHomepage := Some(new URL("https://www.codacy.com"))
