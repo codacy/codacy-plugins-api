@@ -65,11 +65,10 @@ ThisBuild / homepage := Some(url("http://www.github.com/codacy/codacy-plugins-ap
 ThisBuild / pomIncludeRepository := { _ =>
   false
 }
-ThisBuild / publishTo := sonatypePublishTo.value
-// ThisBuild / publishTo := {
-//   val nexus = "https://oss.sonatype.org/"
-//   if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-//   else Some("releases" at nexus + "service/local/staging/deploy/maven2")
-// }
+ThisBuild / publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
 ThisBuild / publishMavenStyle := true
 ThisBuild / publishArtifact in Test := false
