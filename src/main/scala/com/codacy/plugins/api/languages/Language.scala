@@ -230,7 +230,7 @@ object Languages {
 
   // Support startdate: September 2018
   case object Markdown
-      extends Language(extensions = Set("md", "markdown", "mdown", "mkdn", "mkd", "mdwn", "mkdown", "ron"))
+      extends Language(extensions = Set(".md", ".markdown", ".mdown", ".mkdn", ".mkd", ".mdwn", ".mkdown", ".ron"))
 
   // Soon
 
