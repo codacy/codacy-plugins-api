@@ -224,7 +224,7 @@ object Languages {
   // Support startdate: June 2018
   case object Elixir extends Language(extensions = Set(".ex", ".exs"))
 
-  // Support startdate: August 2018
+  // Support startdate: October 2018
   case object Powershell
       extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
 
