@@ -3,9 +3,9 @@ version := "1.0.0-SNAPSHOT"
 organization := "com.codacy"
 
 scalaVersion := "2.11.12"
-crossScalaVersions := Seq(scalaVersion.value, "2.12.4")
+crossScalaVersions := Seq("2.10.6", scalaVersion.value, "2.12.4")
 
-libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "4.0.2" % Test)
+libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.10.0" % Test)
 
 // Sonatype repository settings
 ThisBuild / credentials += Credentials(
