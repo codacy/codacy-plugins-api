@@ -76,6 +76,7 @@ object Languages {
                                PHP,
                                Python,
                                Ruby,
+                               Crystal,
                                Java,
                                CoffeeScript,
                                Swift,
@@ -251,6 +252,8 @@ object Languages {
   case object HTML extends Language(extensions = Set(".html"))
 
   case object Groovy extends Language(extensions = Set(".groovy"))
+
+  case object Crystal extends Language(extensions = Set(".cr"))
 
   // Others
 
