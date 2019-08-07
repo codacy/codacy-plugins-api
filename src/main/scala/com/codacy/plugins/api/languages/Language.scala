@@ -1,5 +1,7 @@
 package com.codacy.plugins.api.languages
 
+import scala.collection.compat._
+
 sealed abstract class Language(val extensions: Set[String],
                                val overriddenName: Option[String] = Option.empty[String],
                                val files: Set[String] = Set.empty[String]) {
@@ -11,21 +13,21 @@ sealed abstract class Language(val extensions: Set[String],
 
 object Languages {
 
-  lazy val extensionsByLanguage: Map[Language, Set[String]] = all.map { lang =>
+  lazy val extensionsByLanguage: Map[Language, Set[String]] = all.iterator.map { lang =>
     (lang, lang.extensions)
-  }(collection.breakOut)
+  }.toMap
 
-  lazy val filenamesByLanguage: Map[Language, Set[String]] = all.map { lang =>
+  lazy val filenamesByLanguage: Map[Language, Set[String]] = all.iterator.map { lang =>
     (lang, lang.files)
-  }(collection.breakOut)
+  }.toMap
 
-  lazy val languageByExtension: Map[String, Language] = all.flatMap { lang =>
+  lazy val languageByExtension: Map[String, Language] = all.iterator.flatMap { lang =>
     lang.extensions.map(extension => (extension.toLowerCase(), lang))
-  }(collection.breakOut)
+  }.toMap
 
-  lazy val languageByFilename: Map[String, Language] = all.flatMap { lang =>
+  lazy val languageByFilename: Map[String, Language] = all.iterator.flatMap { lang =>
     lang.files.map(file => (file.toLowerCase(), lang))
-  }(collection.breakOut)
+  }.toMap
 
   def extensions(language: Language): Option[Set[String]] = extensionsByLanguage.get(language)
 
@@ -37,10 +39,10 @@ object Languages {
     filePath: String,
     customExtensions: List[(Language, Seq[String])] = List.empty[(Language, Seq[String])]): Option[Language] = {
     lazy val languageByCustomExtension: List[(String, Language)] = {
-      val customExtensionsMap: Map[Language, Set[String]] = customExtensions.map {
+      val customExtensionsMap: Map[Language, Set[String]] = customExtensions.iterator.map {
         case (lang, exts) =>
-          (lang, exts.to[Set] ++ extensionsByLanguage.getOrElse(lang, Set.empty))
-      }(collection.breakOut)
+          (lang, exts.to(Set) ++ extensionsByLanguage.getOrElse(lang, Set.empty))
+      }.toMap
 
       customExtensionsMap.flatMap {
         case (lang, extensions) => extensions.map(extension => (extension.toLowerCase, lang))

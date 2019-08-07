@@ -1,11 +1,17 @@
+val scala211 = "2.11.12"
+val scala212 = "2.12.8"
+val scala213 = "2.13.0"
+
 name := "codacy-plugins-api"
-version := "1.0.0-SNAPSHOT"
 organization := "com.codacy"
 
-scalaVersion := "2.11.12"
-crossScalaVersions := Seq("2.10.6", scalaVersion.value, "2.12.4")
+scalaVersion := scala212
+crossScalaVersions := Seq(scala211, scala212, scala213)
 
-libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.10.0" % Test)
+libraryDependencies ++= Seq(
+  "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2",
+  "org.specs2" %% "specs2-core" % "4.6.0" % Test
+)
 
 // Sonatype repository settings
 ThisBuild / credentials += Credentials(
