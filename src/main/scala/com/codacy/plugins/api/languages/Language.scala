@@ -11,21 +11,13 @@ sealed abstract class Language(val extensions: Set[String],
 
 object Languages {
 
-  lazy val extensionsByLanguage: Map[Language, Set[String]] = all.map { lang =>
-    (lang, lang.extensions)
-  }(collection.breakOut)
+  lazy val extensionsByLanguage: Map[Language, Set[String]] = LanguagesImpl.extensionsByLanguageImpl
 
-  lazy val filenamesByLanguage: Map[Language, Set[String]] = all.map { lang =>
-    (lang, lang.files)
-  }(collection.breakOut)
+  lazy val filenamesByLanguage: Map[Language, Set[String]] = LanguagesImpl.filenamesByLanguageImpl
 
-  lazy val languageByExtension: Map[String, Language] = all.flatMap { lang =>
-    lang.extensions.map(extension => (extension.toLowerCase(), lang))
-  }(collection.breakOut)
+  lazy val languageByExtension: Map[String, Language] = LanguagesImpl.languageByExtensionImpl
 
-  lazy val languageByFilename: Map[String, Language] = all.flatMap { lang =>
-    lang.files.map(file => (file.toLowerCase(), lang))
-  }(collection.breakOut)
+  lazy val languageByFilename: Map[String, Language] = LanguagesImpl.languageByFilenameImpl
 
   def extensions(language: Language): Option[Set[String]] = extensionsByLanguage.get(language)
 
@@ -33,31 +25,9 @@ object Languages {
 
   def fromName(name: String): Option[Language] = all.find(lang => name.equalsIgnoreCase(lang.name))
 
-  def forPath(
-    filePath: String,
-    customExtensions: List[(Language, Seq[String])] = List.empty[(Language, Seq[String])]): Option[Language] = {
-    lazy val languageByCustomExtension: List[(String, Language)] = {
-      val customExtensionsMap: Map[Language, Set[String]] = customExtensions.map {
-        case (lang, exts) =>
-          (lang, exts.to[Set] ++ extensionsByLanguage.getOrElse(lang, Set.empty))
-      }(collection.breakOut)
-
-      customExtensionsMap.flatMap {
-        case (lang, extensions) => extensions.map(extension => (extension.toLowerCase, lang))
-      }.toList.sortBy {
-        case (ext, lang) => (lang.toString, ext)
-      }
-    }
-
-    filePath.split('/').lastOption.flatMap { filename =>
-      languageByCustomExtension.collectFirst { case (ext, lang) if filename.endsWith(ext) => lang }.orElse {
-        (for {
-          extension <- filename.split('.').lastOption
-          dottedExtension = s".$extension"
-        } yield languageByExtension.get(dottedExtension.toLowerCase)).flatten
-      }.orElse(languageByFilename.get(filename.toLowerCase))
-    }
-  }
+  def forPath(filePath: String,
+              customExtensions: List[(Language, Seq[String])] = List.empty[(Language, Seq[String])]): Option[Language] =
+    LanguagesImpl.forPathImpl(filePath, customExtensions)
 
   def filter(files: Set[String],
              languages: Set[Language],

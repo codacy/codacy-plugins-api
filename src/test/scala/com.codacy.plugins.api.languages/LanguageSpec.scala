@@ -19,7 +19,7 @@ class LanguageSpec extends Specification with NoLanguageFeatures {
                     "src/main/scala/com/codacy/File1.py"),
                 Set(Languages.Scala, Languages.Java),
                 Map((Languages.Scala, Set(".sc"))))
-        .to[List]
+        .toList
 
       files should containTheSameElementsAs(expected)
     }
