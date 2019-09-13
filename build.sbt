@@ -9,9 +9,16 @@ scalaVersion := scala212
 crossScalaVersions := Seq(scala211, scala212, scala213)
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.2",
   "org.specs2" %% "specs2-core" % "4.6.0" % Test
 )
+
+unmanagedSourceDirectories in Compile += {
+  val sourceDir = (sourceDirectory in Compile).value
+  CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, n)) if n >= 13 => sourceDir / "scala-2.13+"
+    case _                       => sourceDir / "scala-2.13-"
+  }
+}
 
 // Sonatype repository settings
 ThisBuild / credentials += Credentials(

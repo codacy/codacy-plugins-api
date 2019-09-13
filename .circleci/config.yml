@@ -33,8 +33,8 @@ references:
   restore_build: &restore_build
     restore_cache:
       keys:
-        - sbt-build-1.0.0-{{ .Branch }}-{{ .Revision }}
-        - sbt-build-1.0.0
+        - sbt-build-1.0.1-{{ .Branch }}-{{ .Revision }}
+        - sbt-build-1.0.1
 
   setup_dependencies_key: &setup_dependencies_key
     run:
@@ -69,6 +69,7 @@ jobs:
           paths:
             - ~/.ivy2
             - ~/.sbt
+            - ~/.coursier/cache/v1
           key: sbt-ivy2-dependencies-1.0.0-{{ checksum "/tmp/dependencies.cache.tmp" }}
 
   compile:
@@ -102,15 +103,15 @@ jobs:
           working_directory: ~/
           command: |
             mkdir -p ~/coverage-reports/scoverage
-            cp -f ~/workdir/target/scala-2.11/coverage-report/cobertura.xml ~/coverage-reports/scoverage/results.xml
+            cp -f ~/workdir/target/scala-2.12/coverage-report/cobertura.xml ~/coverage-reports/scoverage/results.xml
       - store_test_results:
           path: ~/coverage-reports
       - store_artifacts:
-          path: ~/workdir/target/scala-2.11/coverage-report
+          path: ~/workdir/target/scala-2.12/coverage-report
       - store_artifacts:
-          path: ~/workdir/target/scala-2.11/scoverage-report
+          path: ~/workdir/target/scala-2.12/scoverage-report
       - store_artifacts:
-          path: ~/workdir/target/scala-2.11/scoverage-data
+          path: ~/workdir/target/scala-2.12/scoverage-data
 
   publish:
     <<: *default_java_job
