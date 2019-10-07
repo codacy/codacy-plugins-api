@@ -56,6 +56,7 @@ object Languages {
                                TypeScript,
                                Dockerfile,
                                SQL,
+                               TSQL,
                                PLSQL,
                                JSON,
                                SASS,
@@ -145,6 +146,8 @@ object Languages {
 
   // Support startdate: January 2017
   case object SQL extends Language(extensions = Set.empty[String])
+
+  case object TSQL extends Language(extensions = Set(".tsql"))
 
   case object PLSQL
       extends Language(
