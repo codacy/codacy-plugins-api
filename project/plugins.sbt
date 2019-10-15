@@ -1,10 +1,3 @@
-// Sonatype publishing
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "2.3")
-addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.2-1")
+resolvers += Resolver.jcenterRepo
 
-// Dependency updates
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.3.4")
-
-// Coverage
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.0")
-addSbtPlugin("com.codacy" % "sbt-codacy-coverage" % "1.3.15")
+addSbtPlugin("com.codacy" % "codacy-sbt-plugin" % "17.1.2")
