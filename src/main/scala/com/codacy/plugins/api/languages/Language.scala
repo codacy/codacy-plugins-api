@@ -94,7 +94,8 @@ object Languages {
                                Powershell,
                                Solidity,
                                OCaml,
-                               Markdown)
+                               Markdown,
+                               ABAP)
 
   // Support startdate: always
   case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue"))
@@ -147,6 +148,7 @@ object Languages {
   // Support startdate: January 2017
   case object SQL extends Language(extensions = Set.empty[String])
 
+  // Support startdate: November 2019
   case object TSQL extends Language(extensions = Set(".tsql"))
 
   case object PLSQL
@@ -207,6 +209,17 @@ object Languages {
   case object Markdown
       extends Language(extensions = Set(".md", ".markdown", ".mdown", ".mkdn", ".mkd", ".mdwn", ".mkdown", ".ron"))
 
+  // Support startdate: November 2019
+  case object Groovy extends Language(extensions = Set(".groovy"))
+
+  case object Crystal extends Language(extensions = Set(".cr"))
+
+  // Support startdate: November 2019
+  case object ABAP extends Language(extensions = Set(".abap"))
+
+  // Support startdate: November 2019
+  case object Cobol extends Language(extensions = Set(".cbl", ".cob"))
+
   // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
@@ -225,10 +238,6 @@ object Languages {
 
   case object HTML extends Language(extensions = Set(".html"))
 
-  case object Groovy extends Language(extensions = Set(".groovy"))
-
-  case object Crystal extends Language(extensions = Set(".cr"))
-
   // Others
 
   case object Perl extends Language(extensions = Set(".pl"))
@@ -238,8 +247,6 @@ object Languages {
   case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
 
   case object FSharp extends Language(extensions = Set(".fs"))
-
-  case object Cobol extends Language(extensions = Set(".cbl", ".cob"))
 
   case object Fortran extends Language(extensions = Set(".f90", ".f95", ".f03"))
 
