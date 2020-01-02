@@ -133,7 +133,7 @@ object Languages {
   case object Swift extends Language(extensions = Set(".swift"))
 
   // Support startdate: 18 July 2016
-  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx"))
+  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"))
 
   case object C extends Language(extensions = Set(".c", ".h"))
 
