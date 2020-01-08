@@ -57,9 +57,29 @@ object Pattern {
       spec.subcategory match {
         case Some(sc) =>
           sc match {
-            case Subcategory.BadDeserialization | Subcategory.BrokenAccess | Subcategory.BrokenAuth |
-                Subcategory.Injection | Subcategory.Misconfiguration | Subcategory.NoLogging |
-                Subcategory.SensitiveData | Subcategory.VulnerableComponent | Subcategory.XSS | Subcategory.XXE
+            case Subcategory.XSS |
+              Subcategory.Input_validation |
+              Subcategory.File_Access |
+              Subcategory.HTTP |
+              Subcategory.Cookies |
+              Subcategory.Unexpected_behaviour |
+              Subcategory.Mass_assignment |
+              Subcategory.Insecure_Storage |
+              Subcategory.Insecure_modules_libraries |
+              Subcategory.Visibility |
+              Subcategory.CSRF |
+              Subcategory.Android |
+              Subcategory.Malicious_code |
+              Subcategory.Cryptography |
+              Subcategory.Command_Injection |
+              Subcategory.Firefox_OS |
+              Subcategory.Auth |
+              Subcategory.DoS |
+              Subcategory.SQL_Injection |
+              Subcategory.Routes |
+              Subcategory.Regex |
+              Subcategory.SSL |
+              Subcategory.Other
                 if category == Category.Security =>
               spec
 
@@ -70,35 +90,40 @@ object Pattern {
     }
   }
 
-  sealed trait Category
+  type Category = Category.Value
 
-  object Category {
-    case object Security extends Category
-    case object CodeStyle extends Category
-    case object ErrorProne extends Category
-    case object Performance extends Category
-    case object Compatibility extends Category
-    case object UnusedCode extends Category
-    case object Complexity extends Category
-    case object BestPractice extends Category
-    case object Comprehensibility extends Category
-    case object Duplication extends Category
-    case object Documentation extends Category
+  object Category extends Enumeration {
+
+    val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode,
+      Complexity, BestPractice, Comprehensibility, Duplication, Documentation = Value
   }
 
-  sealed trait Subcategory
+  type Subcategory = Subcategory.Value
 
-  object Subcategory {
-    case object Injection extends Subcategory
-    case object BrokenAuth extends Subcategory
-    case object SensitiveData extends Subcategory
-    case object XXE extends Subcategory
-    case object BrokenAccess extends Subcategory
-    case object Misconfiguration extends Subcategory
-    case object XSS extends Subcategory
-    case object BadDeserialization extends Subcategory
-    case object VulnerableComponent extends Subcategory
-    case object NoLogging extends Subcategory
+  object Subcategory extends Enumeration {
+    val XSS = Value("XSS")
+    val Input_validation = Value("Input validation")
+    val File_Access = Value("File Access")
+    val HTTP = Value("HTTP")
+    val Cookies = Value("Cookies")
+    val Unexpected_behaviour = Value("Unexpected behaviour")
+    val Mass_assignment = Value("Mass assignment")
+    val Insecure_Storage = Value("Insecure Storage")
+    val Insecure_modules_libraries = Value("Insecure modules/libraries")
+    val Visibility = Value("Visibility")
+    val CSRF = Value("CSRF")
+    val Android = Value("Android")
+    val Malicious_code = Value("Malicious code")
+    val Cryptography = Value("Cryptography")
+    val Command_Injection = Value("Command Injection")
+    val Firefox_OS = Value("Firefox OS")
+    val Auth = Value("Auth")
+    val DoS = Value("DoS")
+    val SQL_Injection = Value("SQL Injection")
+    val Routes = Value("Routes")
+    val Regex = Value("Regex")
+    val SSL = Value("SSL")
+    val Other = Value("Other")
   }
 
 }
