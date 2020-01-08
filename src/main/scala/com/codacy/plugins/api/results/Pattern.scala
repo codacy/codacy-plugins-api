@@ -57,29 +57,12 @@ object Pattern {
       spec.subcategory match {
         case Some(sc) =>
           sc match {
-            case Subcategory.XSS |
-              Subcategory.Input_validation |
-              Subcategory.File_Access |
-              Subcategory.HTTP |
-              Subcategory.Cookies |
-              Subcategory.Unexpected_behaviour |
-              Subcategory.Mass_assignment |
-              Subcategory.Insecure_Storage |
-              Subcategory.Insecure_modules_libraries |
-              Subcategory.Visibility |
-              Subcategory.CSRF |
-              Subcategory.Android |
-              Subcategory.Malicious_code |
-              Subcategory.Cryptography |
-              Subcategory.Command_Injection |
-              Subcategory.Firefox_OS |
-              Subcategory.Auth |
-              Subcategory.DoS |
-              Subcategory.SQL_Injection |
-              Subcategory.Routes |
-              Subcategory.Regex |
-              Subcategory.SSL |
-              Subcategory.Other
+            case Subcategory.XSS | Subcategory.Input_validation | Subcategory.File_Access | Subcategory.HTTP |
+                Subcategory.Cookies | Subcategory.Unexpected_behaviour | Subcategory.Mass_assignment |
+                Subcategory.Insecure_Storage | Subcategory.Insecure_modules_libraries | Subcategory.Visibility |
+                Subcategory.CSRF | Subcategory.Android | Subcategory.Malicious_code | Subcategory.Cryptography |
+                Subcategory.Command_Injection | Subcategory.Firefox_OS | Subcategory.Auth | Subcategory.DoS |
+                Subcategory.SQL_Injection | Subcategory.Routes | Subcategory.Regex | Subcategory.SSL | Subcategory.Other
                 if category == Category.Security =>
               spec
 
@@ -94,8 +77,8 @@ object Pattern {
 
   object Category extends Enumeration {
 
-    val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode,
-      Complexity, BestPractice, Comprehensibility, Duplication, Documentation = Value
+    val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
+    Comprehensibility, Duplication, Documentation = Value
   }
 
   type Subcategory = Subcategory.Value
