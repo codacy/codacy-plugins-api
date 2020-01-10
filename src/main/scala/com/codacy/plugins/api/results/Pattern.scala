@@ -46,6 +46,16 @@ object Pattern {
                                          languages: Option[Set[Language]] = None)
         extends Specification
 
+    def unapply(s: Pattern.Specification): Option[(Pattern.Id,
+                                                   Result.Level,
+                                                   Category,
+                                                   Option[Subcategory],
+                                                   Option[Set[Parameter.Specification]],
+                                                   Option[Set[Language]])] = s match {
+      case si: SpecificationImpl =>
+        SpecificationImpl.unapply(si)
+    }
+
     def apply(patternId: Pattern.Id,
               level: Result.Level,
               category: Category,
