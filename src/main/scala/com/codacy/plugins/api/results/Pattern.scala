@@ -33,7 +33,10 @@ object Pattern {
                            category: Specification.Category,
                            subcategory: Option[Specification.Subcategory],
                            parameters: Option[Set[Parameter.Specification]],
-                           languages: Option[Set[Language]] = None)
+                           languages: Option[Set[Language]] = None) {
+    require(subcategory.isEmpty || category == Specification.Category.Security,
+            "Security is the only category having subcategories")
+  }
   object Specification {
     type Category = Category.Value
     object Category extends Enumeration {
