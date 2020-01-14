@@ -85,7 +85,7 @@ object Pattern {
                 if category == Category.Security =>
               spec
 
-            case _ => throw new Exception("invalid sub category")
+            case _ => throw new Exception(s"Invalid subcategory: $subcategory is not subcategory of $category")
           }
         case None => spec
       }
