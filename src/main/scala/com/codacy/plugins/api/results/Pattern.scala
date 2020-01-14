@@ -28,104 +28,25 @@ object Pattern {
 
   case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
 
-  trait Specification {
-    val patternId: Pattern.Id
-    val level: Result.Level
-    val category: Category
-    val subcategory: Option[Subcategory]
-    val parameters: Option[Set[Parameter.Specification]]
-    val languages: Option[Set[Language]]
-
-    def copy(patternId: Pattern.Id = patternId,
-             level: Result.Level = level,
-             category: Category = category,
-             subcategory: Option[Subcategory] = subcategory,
-             parameters: Option[Set[Parameter.Specification]] = parameters,
-             languages: Option[Set[Language]] = languages): Specification = {
-      Specification(patternId, level, category, subcategory, parameters, languages)
-    }
-  }
-
+  case class Specification(patternId: Pattern.Id,
+                           level: Result.Level,
+                           category: Specification.Category,
+                           subcategory: Option[Specification.Subcategory],
+                           parameters: Option[Set[Parameter.Specification]],
+                           languages: Option[Set[Language]] = None)
   object Specification {
-    private case class SpecificationImpl(patternId: Pattern.Id,
-                                         level: Result.Level,
-                                         category: Category,
-                                         subcategory: Option[Subcategory],
-                                         parameters: Option[Set[Parameter.Specification]],
-                                         languages: Option[Set[Language]] = None)
-        extends Specification
-
-    def unapply(s: Pattern.Specification): Option[(Pattern.Id,
-                                                   Result.Level,
-                                                   Category,
-                                                   Option[Subcategory],
-                                                   Option[Set[Parameter.Specification]],
-                                                   Option[Set[Language]])] = s match {
-      case si: SpecificationImpl =>
-        SpecificationImpl.unapply(si)
+    type Category = Category.Value
+    object Category extends Enumeration {
+      val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
+      Comprehensibility, Duplication, Documentation = Value
     }
 
-    def apply(patternId: Pattern.Id,
-              level: Result.Level,
-              category: Category,
-              subcategory: Option[Subcategory],
-              parameters: Option[Set[Parameter.Specification]],
-              languages: Option[Set[Language]] = None): Specification = {
-      val spec = SpecificationImpl(patternId, level, category, subcategory, parameters, languages)
+    type Subcategory = Subcategory.Value
 
-      spec.subcategory match {
-        case Some(sc) =>
-          sc match {
-            case Subcategory.XSS | Subcategory.Input_validation | Subcategory.File_Access | Subcategory.HTTP |
-                Subcategory.Cookies | Subcategory.Unexpected_behaviour | Subcategory.Mass_assignment |
-                Subcategory.Insecure_Storage | Subcategory.Insecure_modules_libraries | Subcategory.Visibility |
-                Subcategory.CSRF | Subcategory.Android | Subcategory.Malicious_code | Subcategory.Cryptography |
-                Subcategory.Command_Injection | Subcategory.Firefox_OS | Subcategory.Auth | Subcategory.DoS |
-                Subcategory.SQL_Injection | Subcategory.Routes | Subcategory.Regex | Subcategory.SSL | Subcategory.Other
-                if category == Category.Security =>
-              spec
-
-            case _ => throw new Exception(s"Invalid subcategory: $subcategory is not subcategory of $category")
-          }
-        case None => spec
-      }
+    object Subcategory extends Enumeration {
+      val XSS, InputValidation, FileAccess, HTTP, Cookies, UnexpectedBehaviour, MassAssignment, InsecureStorage,
+      InsecureModulesLibraries, Visibility, CSRF, Android, MaliciousCode, Cryptography, CommandInjection, FirefoxOS,
+      Auth, DoS, SQLInjection, Routes, Regex, SSL, Other = Value
     }
   }
-
-  type Category = Category.Value
-
-  object Category extends Enumeration {
-
-    val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
-    Comprehensibility, Duplication, Documentation = Value
-  }
-
-  type Subcategory = Subcategory.Value
-
-  object Subcategory extends Enumeration {
-    val XSS = Value("XSS")
-    val Input_validation = Value("Input validation")
-    val File_Access = Value("File Access")
-    val HTTP = Value("HTTP")
-    val Cookies = Value("Cookies")
-    val Unexpected_behaviour = Value("Unexpected behaviour")
-    val Mass_assignment = Value("Mass assignment")
-    val Insecure_Storage = Value("Insecure Storage")
-    val Insecure_modules_libraries = Value("Insecure modules/libraries")
-    val Visibility = Value("Visibility")
-    val CSRF = Value("CSRF")
-    val Android = Value("Android")
-    val Malicious_code = Value("Malicious code")
-    val Cryptography = Value("Cryptography")
-    val Command_Injection = Value("Command Injection")
-    val Firefox_OS = Value("Firefox OS")
-    val Auth = Value("Auth")
-    val DoS = Value("DoS")
-    val SQL_Injection = Value("SQL Injection")
-    val Routes = Value("Routes")
-    val Regex = Value("Regex")
-    val SSL = Value("SSL")
-    val Other = Value("Other")
-  }
-
 }
