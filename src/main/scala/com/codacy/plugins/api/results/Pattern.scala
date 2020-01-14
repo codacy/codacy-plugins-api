@@ -30,26 +30,23 @@ object Pattern {
 
   case class Specification(patternId: Pattern.Id,
                            level: Result.Level,
-                           category: Specification.Category,
-                           subcategory: Option[Specification.Subcategory],
+                           category: Category,
+                           subcategory: Option[Subcategory],
                            parameters: Option[Set[Parameter.Specification]],
                            languages: Option[Set[Language]] = None) {
-    require(subcategory.isEmpty || category == Specification.Category.Security,
-            "Security is the only category having subcategories")
+    require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
   }
-  object Specification {
-    type Category = Category.Value
-    object Category extends Enumeration {
-      val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
-      Comprehensibility, Duplication, Documentation = Value
-    }
 
-    type Subcategory = Subcategory.Value
+  type Category = Category.Value
+  object Category extends Enumeration {
+    val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
+    Comprehensibility, Duplication, Documentation = Value
+  }
 
-    object Subcategory extends Enumeration {
-      val XSS, InputValidation, FileAccess, HTTP, Cookies, UnexpectedBehaviour, MassAssignment, InsecureStorage,
-      InsecureModulesLibraries, Visibility, CSRF, Android, MaliciousCode, Cryptography, CommandInjection, FirefoxOS,
-      Auth, DoS, SQLInjection, Routes, Regex, SSL, Other = Value
-    }
+  type Subcategory = Subcategory.Value
+  object Subcategory extends Enumeration {
+    val XSS, InputValidation, FileAccess, HTTP, Cookies, UnexpectedBehaviour, MassAssignment, InsecureStorage,
+    InsecureModulesLibraries, Visibility, CSRF, Android, MaliciousCode, Cryptography, CommandInjection, FirefoxOS, Auth,
+    DoS, SQLInjection, Routes, Regex, SSL, Other = Value
   }
 }
