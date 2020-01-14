@@ -35,6 +35,15 @@ object Pattern {
     val subcategory: Option[Subcategory]
     val parameters: Option[Set[Parameter.Specification]]
     val languages: Option[Set[Language]]
+
+    def copy(patternId: Pattern.Id = patternId,
+             level: Result.Level = level,
+             category: Category = category,
+             subcategory: Option[Subcategory] = subcategory,
+             parameters: Option[Set[Parameter.Specification]] = parameters,
+             languages: Option[Set[Language]] = languages): Specification = {
+      Specification(patternId, level, category, subcategory, parameters, languages)
+    }
   }
 
   object Specification {

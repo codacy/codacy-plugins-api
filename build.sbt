@@ -1,5 +1,5 @@
 val scala211 = "2.11.12"
-val scala212 = "2.12.8"
+val scala212 = "2.12.10"
 val scala213 = "2.13.1"
 
 name := "codacy-plugins-api"
@@ -9,7 +9,7 @@ scalaVersion := scala212
 
 crossScalaVersions := Seq(scala211, scala212, scala213)
 
-libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "4.7.1" % Test)
+libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "4.8.3" % Test)
 
 unmanagedSourceDirectories in Compile += {
   val sourceDir = (sourceDirectory in Compile).value
