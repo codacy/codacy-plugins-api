@@ -220,6 +220,9 @@ object Languages {
   // Support startdate: November 2019
   case object Cobol extends Language(extensions = Set(".cbl", ".cob"))
 
+  // Support startdate: February 2020
+  case object VisualBasic extends Language(extensions = Set(".vb"))
+
   // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
@@ -241,8 +244,6 @@ object Languages {
   // Others
 
   case object Perl extends Language(extensions = Set(".pl"))
-
-  case object VisualBasic extends Language(extensions = Set(".vb"))
 
   case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
 
