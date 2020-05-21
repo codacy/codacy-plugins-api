@@ -12,28 +12,20 @@ object Pattern {
     override def toString: String = value
   }
 
-  case class DescriptionText(value: String) extends AnyVal {
-    override def toString: String = value
-  }
+  case class Description(patternId: String,
+                         title: String,
+                         description: Option[String],
+                         timeToFix: Option[Int],
+                         parameters: Set[Parameter.Description])
 
-  case class TimeToFix(value: Int) extends AnyVal {
-    override def toString: String = value.toString
-  }
+  case class Definition(patternId: String, parameters: Set[Parameter.Definition])
 
-  case class Description(patternId: Pattern.Id,
-                         title: Pattern.Title,
-                         description: Option[Pattern.DescriptionText],
-                         timeToFix: Option[Pattern.TimeToFix],
-                         parameters: Option[Set[Parameter.Description]])
-
-  case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
-
-  case class Specification(patternId: Pattern.Id,
-                           level: Result.Level,
+  case class Specification(patternId: String,
+                           level: Level,
                            category: Category,
                            subcategory: Option[Subcategory],
-                           parameters: Option[Set[Parameter.Specification]],
-                           languages: Option[Set[Language]] = None) {
+                           parameters: Set[Parameter.Specification],
+                           languages: Set[Language]) {
     require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
   }
 
