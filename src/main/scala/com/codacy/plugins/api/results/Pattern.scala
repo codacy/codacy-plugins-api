@@ -24,9 +24,9 @@ object Pattern {
                          title: Pattern.Title,
                          description: Option[Pattern.DescriptionText],
                          timeToFix: Option[Pattern.TimeToFix],
-                         parameters: Option[Set[Parameter.Description]])
+                         parameters: Set[Parameter.Description] = Set.empty)
 
-  case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
+  case class Definition(patternId: Pattern.Id, parameters: Set[Parameter.Definition] = Set.empty)
 
   case class Specification(patternId: Pattern.Id,
                            level: Result.Level,
