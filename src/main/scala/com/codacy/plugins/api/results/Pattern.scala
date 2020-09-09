@@ -32,8 +32,9 @@ object Pattern {
                            level: Result.Level,
                            category: Category,
                            subcategory: Option[Subcategory],
-                           parameters: Option[Set[Parameter.Specification]],
-                           languages: Option[Set[Language]] = None) {
+                           parameters: Set[Parameter.Specification] = Set.empty,
+                           languages: Set[Language] = Set.empty,
+                           enabled: Boolean = false) {
     require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
   }
 
