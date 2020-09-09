@@ -33,7 +33,8 @@ object Pattern {
                            category: Category,
                            subcategory: Option[Subcategory],
                            parameters: Option[Set[Parameter.Specification]],
-                           languages: Option[Set[Language]] = None) {
+                           languages: Option[Set[Language]] = None,
+                           enabledByDefault: Option[Boolean]) {
     require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
   }
 
