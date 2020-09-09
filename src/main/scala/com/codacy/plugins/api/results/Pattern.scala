@@ -24,16 +24,17 @@ object Pattern {
                          title: Pattern.Title,
                          description: Option[Pattern.DescriptionText],
                          timeToFix: Option[Pattern.TimeToFix],
-                         parameters: Option[Set[Parameter.Description]])
+                         parameters: Set[Parameter.Description] = Set.empty)
 
-  case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
+  case class Definition(patternId: Pattern.Id, parameters: Set[Parameter.Definition] = Set.empty)
 
   case class Specification(patternId: Pattern.Id,
                            level: Result.Level,
                            category: Category,
                            subcategory: Option[Subcategory],
-                           parameters: Option[Set[Parameter.Specification]],
-                           languages: Option[Set[Language]] = None) {
+                           parameters: Set[Parameter.Specification] = Set.empty,
+                           languages: Set[Language] = Set.empty,
+                           enabled: Boolean = false) {
     require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
   }
 
