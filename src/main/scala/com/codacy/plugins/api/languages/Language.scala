@@ -223,6 +223,9 @@ object Languages {
   // Support startdate: February 2020
   case object VisualBasic extends Language(extensions = Set(".vb"))
 
+  // Support startdate: November 2020
+  case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
+
   // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
@@ -244,8 +247,6 @@ object Languages {
   // Others
 
   case object Perl extends Language(extensions = Set(".pl"))
-
-  case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
 
   case object FSharp extends Language(extensions = Set(".fs"))
 
