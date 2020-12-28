@@ -18,7 +18,16 @@ object Result {
     override def toString: String = value
   }
 
-  case class Issue(file: Source.File, message: Result.Message, patternId: Pattern.Id, line: Source.Line) extends Result
+  case class Suggestion(value: String) extends AnyVal {
+    override def toString: String = value
+  }
+
+  case class Issue(file: Source.File,
+                   message: Result.Message,
+                   patternId: Pattern.Id,
+                   line: Source.Line,
+                   suggestion: Option[Suggestion] = None)
+      extends Result
 
   case class ExtendedIssue(check_name: Pattern.Id,
                            description: Result.Message,
