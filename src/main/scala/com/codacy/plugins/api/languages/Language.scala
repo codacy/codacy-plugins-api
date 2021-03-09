@@ -226,6 +226,10 @@ object Languages {
   // Support startdate: November 2020
   case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
 
+  // Support startdate: March 2021
+  case object YAML extends Language(extensions = Set(".yaml", ".yml"))
+  case object Terraform extends Language(extensions = Set(".tf"))
+
   // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
@@ -235,8 +239,6 @@ object Languages {
   case object Haskell extends Language(extensions = Set(".hs", ".lhs"))
 
   case object Erlang extends Language(extensions = Set(".erl"))
-
-  case object YAML extends Language(extensions = Set(".yaml", ".yml"))
 
   case object Dart extends Language(extensions = Set(".dart"))
 
