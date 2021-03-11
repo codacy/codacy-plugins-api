@@ -95,7 +95,8 @@ object Languages {
                                Solidity,
                                OCaml,
                                Markdown,
-                               ABAP)
+                               ABAP,
+                               Terraform)
 
   // Support startdate: always
   case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue"))
