@@ -28,6 +28,7 @@ class LanguageSpec extends Specification with NoLanguageFeatures {
       Languages.forPath("src/main/scala/com/codacy/File1.scala") should beEqualTo(Some(Languages.Scala))
       Languages.forPath("src/main/scala/com/codacy/File1.sc", List((Languages.Scala, Seq(".sc")))) should beEqualTo(
         Some(Languages.Scala))
+      Languages.forPath("src/File3.mjs") should beEqualTo(Some(Languages.Javascript))
     }
   }
 }
