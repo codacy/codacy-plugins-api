@@ -29,13 +29,6 @@ object Result {
                    suggestion: Option[Suggestion] = None)
       extends Result
 
-  case class ExtendedIssue(check_name: Pattern.Id,
-                           description: Result.Message,
-                           categories: List[String],
-                           location: Location,
-                           severity: Option[String])
-      extends Result
-
   case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
 
   type Level = Level.Value
