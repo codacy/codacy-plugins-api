@@ -99,7 +99,7 @@ object Languages {
                                Terraform)
 
   // Support startdate: always
-  case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".mjs", ".vue"))
+  case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".cjs", ".mjs", ".vue"))
 
   case object Scala extends Language(extensions = Set(".scala"))
 
