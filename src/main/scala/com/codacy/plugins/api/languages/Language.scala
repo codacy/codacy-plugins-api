@@ -1,10 +1,9 @@
 package com.codacy.plugins.api.languages
 
 sealed abstract class Language(val extensions: Set[String],
-                               val overriddenName: Option[String] = Option.empty[String],
                                val files: Set[String] = Set.empty[String]) {
   self: Product =>
-  val name: String = overriddenName.getOrElse(self.productPrefix)
+  val name: String = self.productPrefix
 
   override def toString: String = name
 }
@@ -80,7 +79,7 @@ object Languages {
                                Perl,
                                CSharp,
                                VisualBasic,
-                               ObjectiveC,
+                               `Objective C`,
                                FSharp,
                                Cobol,
                                Fortran,
@@ -225,7 +224,7 @@ object Languages {
   case object VisualBasic extends Language(extensions = Set(".vb"))
 
   // Support startdate: November 2020
-  case object ObjectiveC extends Language(overriddenName = Some("Objective C"), extensions = Set(".m"))
+  case object `Objective C` extends Language(extensions = Set(".m"))
 
   // Support startdate: March 2021
   case object YAML extends Language(extensions = Set(".yaml", ".yml"))
