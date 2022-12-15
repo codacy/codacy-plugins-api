@@ -38,5 +38,6 @@ workflows:
               only:
                 - master
       - codacy/tag_version:
+          context: CodacyAWS
           requires:
             - publish
