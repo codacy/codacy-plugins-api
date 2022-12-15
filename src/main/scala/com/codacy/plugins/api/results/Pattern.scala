@@ -41,13 +41,13 @@ object Pattern {
   type Category = Category.Value
   object Category extends Enumeration {
     val Security, CodeStyle, ErrorProne, Performance, Compatibility, UnusedCode, Complexity, BestPractice,
-    Comprehensibility, Duplication, Documentation = Value
+      Comprehensibility, Duplication, Documentation = Value
   }
 
   type Subcategory = Subcategory.Value
   object Subcategory extends Enumeration {
     val XSS, InputValidation, FileAccess, HTTP, Cookies, UnexpectedBehaviour, MassAssignment, InsecureStorage,
-    InsecureModulesLibraries, Visibility, CSRF, Android, MaliciousCode, Cryptography, CommandInjection, FirefoxOS, Auth,
-    DoS, SQLInjection, Routes, Regex, SSL, Other = Value
+      InsecureModulesLibraries, Visibility, CSRF, Android, MaliciousCode, Cryptography, CommandInjection, FirefoxOS,
+      Auth, DoS, SQLInjection, Routes, Regex, SSL, Other = Value
   }
 }

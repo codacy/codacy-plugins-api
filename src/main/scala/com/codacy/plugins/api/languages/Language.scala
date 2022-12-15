@@ -1,7 +1,6 @@
 package com.codacy.plugins.api.languages
 
-sealed abstract class Language(val extensions: Set[String],
-                               val files: Set[String] = Set.empty[String]) {
+sealed abstract class Language(val extensions: Set[String], val files: Set[String] = Set.empty[String]) {
   self: Product =>
   val name: String = self.productPrefix
 

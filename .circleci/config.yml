@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@1.0.0
+  codacy: codacy/base@10.0.2
 
 workflows:
   version: 2
@@ -9,37 +9,23 @@ workflows:
     jobs:
       - codacy/checkout_and_version:
           write_sbt_version: true
-      - codacy/sbt:
-          name: populate_cache
-          cmd: sbt "set scalafmtUseIvy in ThisBuild := false;update"
-          persist_to_workspace: true
+      - codacy/sbt_docker:
+          name: test
+          steps:
+            - run:
+                name: Scalafmt sources
+                command: sbt scalafmtCheckAll
+            - run:
+                name: Scalafmt sbt sources
+                command: sbt scalafmtSbtCheck
+            - run:
+                name: Compile
+                command: sbt +compile
+            - run:
+                name: Test
+                command: sbt +test
           requires:
             - codacy/checkout_and_version
-      - codacy/sbt:
-          name: check_fmt
-          cmd: sbt "scalafmt::test;test:scalafmt::test;sbt:scalafmt::test"
-          requires:
-            - populate_cache
-      - codacy/sbt:
-          name: compile
-          cmd: |
-            sbt +compile
-            sbt +test:compile
-          requires:
-            - check_fmt
-      - codacy/sbt:
-          name: test
-          cmd: |
-            sbt "coverage;coverageReport;coverageAggregate"
-            sbt +test
-
-            if [ -z "$CODACY_PROJECT_TOKEN" ]; then
-                echo "CODACY_PROJECT_TOKEN not found. Skipping send coverage to Codacy."
-            else
-                sbt codacyCoverage
-            fi
-          requires:
-            - compile
       - codacy/sbt:
           name: publish
           cmd: |
