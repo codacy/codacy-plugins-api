@@ -1,9 +1,10 @@
 package com.codacy.plugins.api.languages
 
-import org.specs2.control.NoLanguageFeatures
-import org.specs2.mutable.Specification
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.OptionValues
+import org.scalatest.wordspec.AnyWordSpec
 
-class LanguageSpec extends Specification with NoLanguageFeatures {
+class LanguageSpec extends AnyWordSpec with Matchers with OptionValues {
   "Languages" should {
     "filter by language" in {
       val expected = Seq("src/main/scala/com/codacy/File1.scala",
@@ -21,14 +22,15 @@ class LanguageSpec extends Specification with NoLanguageFeatures {
                 Map((Languages.Scala, Set(".sc"))))
         .toList
 
-      files should containTheSameElementsAs(expected)
+      files should contain theSameElementsAs expected
     }
 
     "forPath" in {
-      Languages.forPath("src/main/scala/com/codacy/File1.scala") should beEqualTo(Some(Languages.Scala))
-      Languages.forPath("src/main/scala/com/codacy/File1.sc", List((Languages.Scala, Seq(".sc")))) should beEqualTo(
-        Some(Languages.Scala))
-      Languages.forPath("src/File3.mjs") should beEqualTo(Some(Languages.Javascript))
+      Languages.forPath("src/main/scala/com/codacy/File1.scala").value shouldBe Languages.Scala
+      Languages
+        .forPath("src/main/scala/com/codacy/File1.sc", List((Languages.Scala, Seq(".sc"))))
+        .value shouldBe Languages.Scala
+      Languages.forPath("src/File3.mjs").value shouldBe Languages.Javascript
     }
   }
 }
