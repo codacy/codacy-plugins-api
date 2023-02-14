@@ -139,7 +139,7 @@ object Languages {
   case object Shell extends Language(extensions = Set(".sh", ".bash"))
 
   // Support startdate: 24 November 2016
-  case object TypeScript extends Language(extensions = Set(".ts", ".tsx"))
+  case object TypeScript extends Language(extensions = Set(".ts", ".mts", ".tsx"))
 
   // Support startdate: December 2016
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
