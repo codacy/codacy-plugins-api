@@ -11,7 +11,7 @@ lazy val `codacy-plugins-api` =
     .settings(name := "codacy-plugins-api",
               organization := "com.codacy",
               libraryDependencies ++= Seq("wordspec", "shouldmatchers").map(m =>
-                "org.scalatest" %% s"scalatest-$m" % "3.2.14" % Test),
+                "org.scalatest" %%% s"scalatest-$m" % "3.2.14" % Test),
               Compile / unmanagedSourceDirectories += {
                 val sourceDir = (ThisBuild / baseDirectory).value / name.value / "src" / "main"
                 CrossVersion.partialVersion(scalaVersion.value) match {
