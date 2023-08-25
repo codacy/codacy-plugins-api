@@ -145,15 +145,14 @@ object Languages {
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
 
   // Support startdate: January 2017
-  case object SQL extends Language(extensions = Set.empty[String])
+  case object SQL extends Language(extensions = Set(".sql"))
 
   // Support startdate: November 2019
   case object TSQL extends Language(extensions = Set(".tsql"))
 
   case object PLSQL
       extends Language(
-        extensions = Set(".sql", // Normal SQL
-                         ".trg", // Triggers
+        extensions = Set(".trg", // Triggers
                          ".prc",
                          ".fnc", // Standalone Procedures and Functions
                          ".pld", // Oracle*Forms
