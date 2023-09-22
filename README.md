@@ -15,6 +15,10 @@ This repository is meant to be the interface between
 * The tests with [codacy-plugins-test](https://github.com/codacy/codacy-plugins-test)
 * Codacy's internal component running tools and picking up their results
 
+
+TEST DONT MEEEEERGE
+
+
 It's held dependency free so we are flexible on changing (versions of) mainly json-libraries on the components that use it.
 
 ## What is Codacy
