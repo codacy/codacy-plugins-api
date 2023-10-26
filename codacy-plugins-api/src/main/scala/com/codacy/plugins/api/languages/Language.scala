@@ -96,16 +96,18 @@ object Languages {
                                ABAP,
                                Terraform)
 
-  // Support startdate: always
-  case object Javascript extends Language(extensions = Set(".js", ".jsx", ".jsm", ".mjs", ".vue"))
+  // Support startdate: Always
+  case object Javascript
+      extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"),
+                       files = Set("package.json", "package-lock.json", "yarn.lock"))
 
   case object Scala extends Language(extensions = Set(".scala"))
 
   case object CSS extends Language(extensions = Set(".css"))
 
-  case object PHP extends Language(extensions = Set(".php"))
+  case object PHP extends Language(extensions = Set(".php"), files = Set("composer.lock"))
 
-  case object Python extends Language(extensions = Set(".py"))
+  case object Python extends Language(extensions = Set(".py"), files = Set("Pipfile.lock"))
 
   // Support startdate: 31 August 2015
   case object Ruby
@@ -129,17 +131,18 @@ object Languages {
   case object CoffeeScript extends Language(extensions = Set(".coffee"))
 
   // Support startdate: 27 June 2016
-  case object Swift extends Language(extensions = Set(".swift"))
+  case object Swift extends Language(extensions = Set(".swift"), files = Set("Package.resolved"))
 
   // Support startdate: 18 July 2016
-  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"))
+  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"), files = Set("conan.lock"))
 
-  case object C extends Language(extensions = Set(".c", ".h"))
+  case object C extends Language(extensions = Set(".c", ".h"), files = Set("conan.lock"))
 
   case object Shell extends Language(extensions = Set(".sh", ".bash"))
 
   // Support startdate: 24 November 2016
-  case object TypeScript extends Language(extensions = Set(".ts", ".tsx"))
+  case object TypeScript
+      extends Language(extensions = Set(".ts", ".tsx"), files = Set("package.json", "package-lock.json", "yarn.lock"))
 
   // Support startdate: December 2016
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
@@ -191,32 +194,33 @@ object Languages {
   case object VisualForce extends Language(extensions = Set(".component", ".page"))
 
   // Support startdate: May 2017
-  case object CSharp extends Language(extensions = Set(".cs"))
+  case object CSharp extends Language(extensions = Set(".cs"), files = Set(".deps.json", "packages.lock.json"))
 
   // Support startdate: September 2017
   case object Kotlin extends Language(extensions = Set(".kt", ".kts"))
 
   // Support startdate: June 2018
-  case object Elixir extends Language(extensions = Set(".ex", ".exs"))
-
-  // Support startdate: October 2018
-  case object Powershell
-      extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
+  case object Elixir extends Language(extensions = Set(".ex", ".exs"), files = Set("mix.lock"))
 
   // Support startdate: September 2018
   case object Markdown
       extends Language(extensions = Set(".md", ".markdown", ".mdown", ".mkdn", ".mkd", ".mdwn", ".mkdown", ".ron"))
 
-  // Support startdate: November 2019
-  case object Groovy extends Language(extensions = Set(".groovy"))
+// Support startdate: October 2018
+  case object Powershell
+      extends Language(extensions = Set(".ps1", ".psc1", ".psd1", ".psm1", ".ps1xml", ".pssc", ".cdxml", ".clixml"))
 
+  // Support startdate: December 2018
   case object Crystal extends Language(extensions = Set(".cr"))
 
   // Support startdate: November 2019
-  case object ABAP extends Language(extensions = Set(".abap"))
+  case object Cobol extends Language(extensions = Set(".cbl", ".cob"))
 
   // Support startdate: November 2019
-  case object Cobol extends Language(extensions = Set(".cbl", ".cob"))
+  case object Groovy extends Language(extensions = Set(".groovy"))
+
+  // Support startdate: November 2019
+  case object ABAP extends Language(extensions = Set(".abap"))
 
   // Support startdate: February 2020
   case object VisualBasic extends Language(extensions = Set(".vb"))
@@ -228,17 +232,19 @@ object Languages {
   case object YAML extends Language(extensions = Set(".yaml", ".yml"))
   case object Terraform extends Language(extensions = Set(".tf"))
 
+  // Support startdate: January 2022
+  case object Dart extends Language(extensions = Set(".dart"))
+
+  // Support startdate: October 2023
+  case object Rust extends Language(extensions = Set(".rs", ".rlib"), files = Set("Cargo.lock"))
+
   // Soon
 
   case object Clojure extends Language(extensions = Set(".clj", ".cljs", ".cljc", ".edn"))
 
-  case object Rust extends Language(extensions = Set(".rs", ".rlib"))
-
   case object Haskell extends Language(extensions = Set(".hs", ".lhs"))
 
   case object Erlang extends Language(extensions = Set(".erl"))
-
-  case object Dart extends Language(extensions = Set(".dart"))
 
   case object Elm extends Language(extensions = Set(".elm"))
 
