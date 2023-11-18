@@ -22,14 +22,14 @@ object Result {
     override def toString: String = value
   }
 
-  case class Issue(file: Source.File,
+  case class Issue(filename: Source.File,
                    message: Result.Message,
                    patternId: Pattern.Id,
                    line: Source.Line,
                    suggestion: Option[Suggestion] = None)
       extends Result
 
-  case class FileError(file: Source.File, message: Option[ErrorMessage]) extends Result
+  case class FileError(filename: Source.File, message: Option[ErrorMessage]) extends Result
 
   type Level = Level.Value
 

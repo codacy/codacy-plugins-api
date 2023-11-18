@@ -29,6 +29,4 @@ object Tool {
                                  files: Option[Set[Source.File]],
                                  options: Option[Map[Options.Key, Options.Value]])
 
-  case class CodacyAlternativeConfiguration(enabled: Boolean, include_paths: Option[Set[Source.File]])
-
 }
