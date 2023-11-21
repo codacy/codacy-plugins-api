@@ -274,7 +274,6 @@ object Languages {
 
   case object Solidity extends Language(extensions = Set(".sol"))
 
-  case object TrivyFiles extends Language(files = Set("package.json", "package-lock.json", "yarn.lock","composer.lock","Pipfile.lock","Package.resolved",
-                                                      "conan.lock",".deps.json","mix.lock","Cargo.lock"))
+  case object TrivyFiles extends Language(files = Set("package.json", "package-lock.json", "yarn.lock","composer.lock","Pipfile.lock","Package.resolved","conan.lock",".deps.json","mix.lock","Cargo.lock"))
 
 }
