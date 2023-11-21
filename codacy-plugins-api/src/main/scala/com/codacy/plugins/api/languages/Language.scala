@@ -94,20 +94,20 @@ object Languages {
                                OCaml,
                                Markdown,
                                ABAP,
-                               Terraform)
+                               Terraform,
+                               TrivyFiles)
 
   // Support startdate: Always
   case object Javascript
-      extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"),
-                       files = Set("package.json", "package-lock.json", "yarn.lock"))
+      extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"))
 
   case object Scala extends Language(extensions = Set(".scala"))
 
   case object CSS extends Language(extensions = Set(".css"))
 
-  case object PHP extends Language(extensions = Set(".php"), files = Set("composer.lock"))
+  case object PHP extends Language(extensions = Set(".php"))
 
-  case object Python extends Language(extensions = Set(".py"), files = Set("Pipfile.lock"))
+  case object Python extends Language(extensions = Set(".py"))
 
   // Support startdate: 31 August 2015
   case object Ruby
@@ -131,18 +131,18 @@ object Languages {
   case object CoffeeScript extends Language(extensions = Set(".coffee"))
 
   // Support startdate: 27 June 2016
-  case object Swift extends Language(extensions = Set(".swift"), files = Set("Package.resolved"))
+  case object Swift extends Language(extensions = Set(".swift"))
 
   // Support startdate: 18 July 2016
-  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"), files = Set("conan.lock"))
+  case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"))
 
-  case object C extends Language(extensions = Set(".c", ".h"), files = Set("conan.lock"))
+  case object C extends Language(extensions = Set(".c", ".h"))
 
   case object Shell extends Language(extensions = Set(".sh", ".bash"))
 
   // Support startdate: 24 November 2016
   case object TypeScript
-      extends Language(extensions = Set(".ts", ".tsx"), files = Set("package.json", "package-lock.json", "yarn.lock"))
+      extends Language(extensions = Set(".ts", ".tsx"))
 
   // Support startdate: December 2016
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
@@ -194,13 +194,13 @@ object Languages {
   case object VisualForce extends Language(extensions = Set(".component", ".page"))
 
   // Support startdate: May 2017
-  case object CSharp extends Language(extensions = Set(".cs"), files = Set(".deps.json", "packages.lock.json"))
+  case object CSharp extends Language(extensions = Set(".cs"))
 
   // Support startdate: September 2017
   case object Kotlin extends Language(extensions = Set(".kt", ".kts"))
 
   // Support startdate: June 2018
-  case object Elixir extends Language(extensions = Set(".ex", ".exs"), files = Set("mix.lock"))
+  case object Elixir extends Language(extensions = Set(".ex", ".exs"))
 
   // Support startdate: September 2018
   case object Markdown
@@ -236,7 +236,7 @@ object Languages {
   case object Dart extends Language(extensions = Set(".dart"))
 
   // Support startdate: October 2023
-  case object Rust extends Language(extensions = Set(".rs", ".rlib"), files = Set("Cargo.lock"))
+  case object Rust extends Language(extensions = Set(".rs", ".rlib"))
 
   // Soon
 
@@ -273,5 +273,8 @@ object Languages {
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
 
   case object Solidity extends Language(extensions = Set(".sol"))
+
+  case object TrivyFiles extends Language(files = Set("package.json", "package-lock.json", "yarn.lock","composer.lock","Pipfile.lock","Package.resolved",
+                                                      "conan.lock",".deps.json","mix.lock","Cargo.lock"))
 
 }
