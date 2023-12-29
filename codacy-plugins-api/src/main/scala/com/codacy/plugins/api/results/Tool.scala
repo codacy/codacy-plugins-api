@@ -1,6 +1,7 @@
 package com.codacy.plugins.api.results
 
 import com.codacy.plugins.api._
+import com.codacy.plugins.api.languages.Language
 
 import scala.util.Try
 
@@ -25,7 +26,8 @@ object Tool {
 
   case class Configuration(name: Tool.Name, patterns: Option[List[Pattern.Definition]])
 
-  case class CodacyConfiguration(tools: Set[Tool.Configuration],
+  case class CodacyConfiguration(language: Option[Language],
+                                 tools: Set[Tool.Configuration],
                                  files: Option[Set[Source.File]],
                                  options: Option[Map[Options.Key, Options.Value]])
 
