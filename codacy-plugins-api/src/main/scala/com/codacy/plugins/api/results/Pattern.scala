@@ -32,7 +32,7 @@ object Pattern {
                            level: Result.Level,
                            category: Category,
                            subcategory: Option[Subcategory],
-                           scanType: Option[ScanType],
+                           scanType: Option[ScanType] = Option.empty,
                            parameters: Set[Parameter.Specification] = Set.empty,
                            languages: Set[Language] = Set.empty,
                            enabled: Boolean = false) {
