@@ -107,7 +107,7 @@ object Languages {
 
   case object PHP extends Language(extensions = Set(".php"), files = Set("composer.lock"))
 
-  case object Python extends Language(extensions = Set(".py"), files = Set("Pipfile.lock", "requirements.txt"))
+  case object Python extends Language(extensions = Set(".py"), files = Set("requirements.txt", "Pipfile.lock"))
 
   // Support startdate: 31 August 2015
   case object Ruby
@@ -126,7 +126,7 @@ object Languages {
                                    "Vagabondfile",
                                    "Fastfile"))
 
-  case object Java extends Language(extensions = Set(".java"))
+  case object Java extends Language(extensions = Set(".java"), files = Set("gradle.lockfile", "pom.xml"))
 
   case object CoffeeScript extends Language(extensions = Set(".coffee"))
 
@@ -180,7 +180,7 @@ object Languages {
   case object LESS extends Language(extensions = Set(".less"))
 
   // Support startdate: March 2017
-  case object Go extends Language(extensions = Set(".go"))
+  case object Go extends Language(extensions = Set(".go"), files = Set("go.mod", "go.sum"))
 
   case object JSP extends Language(extensions = Set(".jsp"))
 
@@ -233,7 +233,7 @@ object Languages {
   case object Terraform extends Language(extensions = Set(".tf"))
 
   // Support startdate: January 2022
-  case object Dart extends Language(extensions = Set(".dart"))
+  case object Dart extends Language(extensions = Set(".dart"), files = Set("pubspec.lock"))
 
   // Support startdate: October 2023
   case object Rust extends Language(extensions = Set(".rs", ".rlib"), files = Set("Cargo.lock"))
