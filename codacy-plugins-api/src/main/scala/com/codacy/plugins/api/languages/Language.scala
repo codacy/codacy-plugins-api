@@ -276,6 +276,6 @@ object Languages {
 
   case object Solidity extends Language(extensions = Set(".sol"))
 // Generic language is used in Semgrep to map languages it doesn't support. Currently, it's used for PLSQL
-  case object Generic extends Language(extensions = Set(".pls",".sql"))
+  case object Generic extends Language(extensions = Set(".pls", ".sql"))
 
 }
