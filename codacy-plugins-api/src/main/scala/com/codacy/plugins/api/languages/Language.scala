@@ -275,7 +275,7 @@ object Languages {
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
 
   case object Solidity extends Language(extensions = Set(".sol"))
-// Generic language is used in Semgrep to map languages.
+// Generic language is used in Semgrep to map languages. Currently, PLSQL is not supported so we are using for it.
   case object Generic
       extends Language(
         extensions = Set(".trg",
