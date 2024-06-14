@@ -94,8 +94,7 @@ object Languages {
                                OCaml,
                                Markdown,
                                ABAP,
-                               Terraform,
-                               Generic)
+                               Terraform)
 
   // Support startdate: Always
   case object Javascript
@@ -281,22 +280,5 @@ object Languages {
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
 
   case object Solidity extends Language(extensions = Set(".sol"))
-  // Generic language is used in Semgrep to map languages. Currently, PLSQL is not supported so we are using for it.
-  case object Generic
-      extends Language(
-        extensions = Set(".trg",
-                         ".prc",
-                         ".fnc",
-                         ".pld",
-                         ".pls",
-                         ".plh",
-                         ".plb",
-                         ".pck",
-                         ".pks",
-                         ".pkh",
-                         ".pkb",
-                         ".typ",
-                         ".tyb",
-                         ".tps",
-                         ".tpb"))
+
 }
