@@ -1,6 +1,6 @@
-val scala212 = "2.12.17"
-val scala213 = "2.13.10"
-val scala3 = "3.2.2"
+val scala212 = "2.12.19"
+val scala213 = "2.13.12"
+val scala3 = "3.3.3"
 
 ThisBuild / scalaVersion := scala212
 ThisBuild / crossScalaVersions := Seq(scala212, scala213, scala3)
@@ -11,7 +11,7 @@ lazy val `codacy-plugins-api` =
     .settings(name := "codacy-plugins-api",
               organization := "com.codacy",
               libraryDependencies ++= Seq("wordspec", "shouldmatchers").map(m =>
-                "org.scalatest" %%% s"scalatest-$m" % "3.2.14" % Test),
+                "org.scalatest" %%% s"scalatest-$m" % "3.2.18" % Test),
               Compile / unmanagedSourceDirectories += {
                 val sourceDir = (ThisBuild / baseDirectory).value / name.value / "src" / "main"
                 CrossVersion.partialVersion(scalaVersion.value) match {

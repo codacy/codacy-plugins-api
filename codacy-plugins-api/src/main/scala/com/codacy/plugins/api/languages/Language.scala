@@ -99,7 +99,7 @@ object Languages {
   // Support startdate: Always
   case object Javascript
       extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"),
-                       files = Set("package.json", "package-lock.json", "yarn.lock"))
+                       files = Set("package.json", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
 
   case object Scala extends Language(extensions = Set(".scala"))
 
@@ -107,7 +107,8 @@ object Languages {
 
   case object PHP extends Language(extensions = Set(".php"), files = Set("composer.lock"))
 
-  case object Python extends Language(extensions = Set(".py"), files = Set("requirements.txt", "Pipfile.lock"))
+  case object Python
+      extends Language(extensions = Set(".py"), files = Set("Pipfile.lock", "requirements.txt", "poetry.lock"))
 
   // Support startdate: 31 August 2015
   case object Ruby
@@ -131,7 +132,7 @@ object Languages {
   case object CoffeeScript extends Language(extensions = Set(".coffee"))
 
   // Support startdate: 27 June 2016
-  case object Swift extends Language(extensions = Set(".swift"), files = Set("Package.resolved"))
+  case object Swift extends Language(extensions = Set(".swift"), files = Set("Package.resolved", "Podfile.lock"))
 
   // Support startdate: 18 July 2016
   case object CPP extends Language(extensions = Set(".cpp", ".hpp", ".cc", ".cxx", ".ino"), files = Set("conan.lock"))
@@ -194,7 +195,13 @@ object Languages {
   case object VisualForce extends Language(extensions = Set(".component", ".page"))
 
   // Support startdate: May 2017
-  case object CSharp extends Language(extensions = Set(".cs"), files = Set(".deps.json", "packages.lock.json"))
+  case object CSharp
+      extends Language(extensions = Set(".cs"),
+                       files = Set(".deps.json",
+                                   "packages.lock.json",
+                                   "packages.config",
+                                   "Directory.Packages.props",
+                                   "Packages.props"))
 
   // Support startdate: September 2017
   case object Kotlin extends Language(extensions = Set(".kt", ".kts"))
@@ -268,7 +275,7 @@ object Languages {
 
   case object Prolog extends Language(extensions = Set(".P", ".swipl"))
 
-  case object Julia extends Language(extensions = Set(".jl"))
+  case object Julia extends Language(extensions = Set(".jl"), files = Set("Manifest.toml"))
 
   case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
 
