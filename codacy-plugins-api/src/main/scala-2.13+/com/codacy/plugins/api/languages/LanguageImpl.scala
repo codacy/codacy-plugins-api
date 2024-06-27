@@ -40,12 +40,17 @@ private[languages] object LanguagesImpl {
     }
 
     filePath.split('/').lastOption.flatMap { filename =>
-      languageByCustomExtension.collectFirst { case (ext, lang) if filename.endsWith(ext) => lang }.orElse {
-        (for {
-          extension <- filename.split('.').lastOption
-          dottedExtension = s".$extension"
-        } yield languageByExtension.get(dottedExtension.toLowerCase)).flatten
-      }.orElse(languageByFilename.get(filename.toLowerCase))
+      languageByFilename
+        .get(filename.toLowerCase)
+        .orElse {
+          languageByCustomExtension.collectFirst { case (ext, lang) if filename.endsWith(ext) => lang }
+        }
+        .orElse {
+          (for {
+            extension <- filename.split('.').lastOption
+            dottedExtension = s".$extension"
+          } yield languageByExtension.get(dottedExtension.toLowerCase)).flatten
+        }
     }
   }
 }

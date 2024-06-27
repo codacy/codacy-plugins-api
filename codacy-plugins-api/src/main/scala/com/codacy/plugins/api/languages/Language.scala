@@ -127,7 +127,7 @@ object Languages {
                                    "Vagabondfile",
                                    "Fastfile"))
 
-  case object Java extends Language(extensions = Set(".java"), files = Set("pom.xml", "gradle.lockfile"))
+  case object Java extends Language(extensions = Set(".java"), files = Set("gradle.lockfile", "pom.xml"))
 
   case object CoffeeScript extends Language(extensions = Set(".coffee"))
 
@@ -181,7 +181,7 @@ object Languages {
   case object LESS extends Language(extensions = Set(".less"))
 
   // Support startdate: March 2017
-  case object Go extends Language(extensions = Set(".go"), files = Set("go.mod"))
+  case object Go extends Language(extensions = Set(".go"), files = Set("go.mod", "go.sum"))
 
   case object JSP extends Language(extensions = Set(".jsp"))
 
