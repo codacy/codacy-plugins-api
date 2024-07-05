@@ -101,7 +101,7 @@ object Languages {
       extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"),
                        files = Set("package.json", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
 
-  case object Scala extends Language(extensions = Set(".scala"))
+  case object Scala extends Language(extensions = Set(".scala"), files = Set("build.sbt.lock"))
 
   case object CSS extends Language(extensions = Set(".css"))
 
