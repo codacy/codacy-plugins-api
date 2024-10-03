@@ -123,8 +123,11 @@ object Result {
 
     case class LicenseWrapper(license: License)
 
-    /** A software license. */
-    case class License(name: String)
+    /** A software license.
+      *
+      * `id` and `name` cannot both be undefined.
+      */
+    case class License(id: Option[String], name: Option[String])
 
     /** Documents a dependency relationship between components.
       *
