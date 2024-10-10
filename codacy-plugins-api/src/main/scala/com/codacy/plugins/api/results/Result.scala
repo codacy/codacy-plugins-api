@@ -97,7 +97,7 @@ object Result {
                          version: Option[String],
                          purl: Option[String],
                          properties: List[Property],
-                         licenses: List[LicenseWrapper])
+                         licenses: Option[List[LicenseWrapper]])
 
     object Component {
       type Type = Type.Value
