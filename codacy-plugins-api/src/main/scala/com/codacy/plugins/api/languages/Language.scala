@@ -236,18 +236,11 @@ object Languages {
   case object `Objective C` extends Language(extensions = Set(".m"))
 
   // Support startdate: March 2021
-  case object YAML 
-    extends Language(
-      extensions = Set(".yaml",
-                       ".yml",
-                       ".env",
-                       ".env.production",
-                       ".env.prod",
-                       ".env.staging",
-                       ".env.dev",
-                       ".env.development"
-      ))
-  
+  case object YAML
+      extends Language(
+        extensions =
+          Set(".yaml", ".yml", ".env", ".env.production", ".env.prod", ".env.staging", ".env.dev", ".env.development"))
+
   case object Terraform extends Language(extensions = Set(".tf"))
 
   // Support startdate: January 2022
