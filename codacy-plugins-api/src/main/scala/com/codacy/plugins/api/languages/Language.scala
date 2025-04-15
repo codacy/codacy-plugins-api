@@ -108,7 +108,8 @@ object Languages {
   case object PHP extends Language(extensions = Set(".php"), files = Set("composer.lock"))
 
   case object Python
-      extends Language(extensions = Set(".py"), files = Set("Pipfile.lock", "requirements.txt", "poetry.lock"))
+      extends Language(extensions = Set(".py"),
+                       files = Set("Pipfile.lock", "requirements.txt", "poetry.lock", "uv.lock"))
 
   // Support startdate: 31 August 2015
   case object Ruby
