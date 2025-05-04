@@ -144,7 +144,7 @@ object Languages {
 
   // Support startdate: 24 November 2016
   case object TypeScript
-      extends Language(extensions = Set(".ts", ".tsx"), files = Set("package.json", "package-lock.json", "yarn.lock"))
+      extends Language(extensions = Set(".ts", ".tsx", ".mts"), files = Set("package.json", "package-lock.json", "yarn.lock"))
 
   // Support startdate: December 2016
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
