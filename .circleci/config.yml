@@ -32,7 +32,7 @@ workflows:
       - codacy/sbt:
           name: publish
           cmd: |
-            sbt "clean;retrieveGPGKeys;+publishSigned;sonatypeBundleRelease"
+            sbt "clean;retrieveGPGKeys;+publishSigned;sonatypeCentralRelease"
           context: CodacyAWS
           requires:
             - test
