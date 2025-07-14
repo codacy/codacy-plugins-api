@@ -35,9 +35,7 @@ object Pattern {
                            scanType: Option[ScanType] = Option.empty,
                            parameters: Set[Parameter.Specification] = Set.empty,
                            languages: Set[Language] = Set.empty,
-                           enabled: Boolean = false) {
-    require(subcategory.isEmpty || category == Category.Security, "Security is the only category having subcategories")
-  }
+                           enabled: Boolean = false) {}
 
   type Category = Category.Value
   object Category extends Enumeration {
