@@ -141,6 +141,7 @@ object Result {
 
   object Level extends Enumeration {
     val Err: Value = Value("Error")
+    val High: Value = Value("High")
     val Warn: Value = Value("Warning")
     val Info: Value = Value("Info")
   }
