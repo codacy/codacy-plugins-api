@@ -28,7 +28,8 @@ object Result {
                    message: Result.Message,
                    patternId: Pattern.Id,
                    line: Source.Line,
-                   suggestion: Option[Suggestion] = None)
+                   suggestion: Option[Suggestion],
+                   sourceId: Option[String])
       extends Result
 
   case class FileError(filename: Source.File, message: Option[ErrorMessage]) extends Result
