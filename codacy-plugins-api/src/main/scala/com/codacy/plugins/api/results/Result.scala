@@ -98,7 +98,7 @@ object Result {
                          version: Option[String],
                          purl: Option[String],
                          properties: List[Property],
-                         licenses: Option[List[LicenseWrapper]])
+                         licenses: Option[List[LicenseType]])
 
     object Component {
       type Type = Type.Value
@@ -122,7 +122,10 @@ object Result {
     /** A name-value pair representing a piece of information not officially supported by the SBOM schema. */
     case class Property(name: String, value: String)
 
-    case class LicenseWrapper(license: License)
+    /** Licenses can be either an expresion ([[LicenseExpression]]) or an identified license ([[LicenseWrapper]]). */
+    sealed trait LicenseType
+    case class LicenseWrapper(license: License) extends LicenseType
+    case class LicenseExpression(expression: String, `bom-ref`: Option[String]) extends LicenseType
 
     /** A software license.
       *
