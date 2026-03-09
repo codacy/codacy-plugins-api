@@ -9,3 +9,6 @@ target
 /bin/
 /.bsp
 .vscode/
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
