@@ -238,9 +238,9 @@ object Languages {
 
   // Support startdate: March 2021
   case object YAML
-      extends Language(
-        extensions =
-          Set(".yaml", ".yml", ".env", ".env.production", ".env.prod", ".env.staging", ".env.dev", ".env.development"))
+      extends Language(extensions = Set(".yaml", ".yml", ".env"),
+                       files =
+                         Set(".env", ".env.production", ".env.prod", ".env.staging", ".env.dev", ".env.development"))
 
   case object Terraform extends Language(extensions = Set(".tf"))
 
