@@ -22,12 +22,18 @@ object Result {
     override def toString: String = value
   }
 
+  /** @param extraFields
+    *   Tool-specific structured metadata as a raw JSON string (e.g. Trivy dependency chains).
+    *   Kept as a String to preserve this module's dependency-free, Scala-Native-friendly design;
+    *   JSON (de)serialization of the embedded value is handled by the codecs in codacy-plugins.
+    */
   case class Issue(filename: Source.File,
                    message: Result.Message,
                    patternId: Pattern.Id,
                    line: Source.Line,
                    suggestion: Option[Suggestion],
-                   sourceId: Option[String])
+                   sourceId: Option[String],
+                   extraFields: Option[String] = None)
       extends Result
 
   case class FileError(filename: Source.File, message: Option[ErrorMessage]) extends Result
