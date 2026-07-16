@@ -256,33 +256,36 @@ object Languages {
 
   case object Haskell extends Language(extensions = Set(".hs", ".lhs"))
 
-  case object Erlang extends Language(extensions = Set(".erl"))
+  case object Erlang
+      extends Language(extensions = Set(".erl", ".hrl", ".es", ".escript"), files = Set("rebar.config", "rebar.lock"))
 
-  case object Elm extends Language(extensions = Set(".elm"))
+  case object Elm extends Language(extensions = Set(".elm"), files = Set("elm.json", "elm-package.json"))
 
-  case object HTML extends Language(extensions = Set(".html"))
+  case object HTML extends Language(extensions = Set(".html", ".htm", ".xhtml"))
 
   // Others
 
-  case object Perl extends Language(extensions = Set(".pl"))
+  case object Perl
+      extends Language(extensions = Set(".pl", ".pm", ".pod", ".perl", ".t"),
+                       files = Set("cpanfile", "cpanfile.snapshot"))
 
-  case object FSharp extends Language(extensions = Set(".fs"))
+  case object FSharp extends Language(extensions = Set(".fs", ".fsi", ".fsx"), files = Set("paket.lock"))
 
-  case object Fortran extends Language(extensions = Set(".f90", ".f95", ".f03"))
+  case object Fortran extends Language(extensions = Set(".f90", ".f95", ".f03", ".f", ".for", ".f77", ".f08"))
 
-  case object R extends Language(extensions = Set(".r"))
+  case object R extends Language(extensions = Set(".r", ".rd", ".rsx"), files = Set("renv.lock", ".Rprofile"))
 
-  case object Scratch extends Language(extensions = Set(".scratch", ".sb", ".sprite", ".sb2", ".sprite2"))
+  case object Scratch extends Language(extensions = Set(".scratch", ".sb", ".sprite", ".sb2", ".sprite2", ".sb3"))
 
-  case object Lua extends Language(extensions = Set(".lua"))
+  case object Lua extends Language(extensions = Set(".lua", ".luau"))
 
-  case object Lisp extends Language(extensions = Set(".asd", ".el", ".lsp", ".lisp"))
+  case object Lisp extends Language(extensions = Set(".asd", ".el", ".lsp", ".lisp", ".cl"))
 
-  case object Prolog extends Language(extensions = Set(".P", ".swipl"))
+  case object Prolog extends Language(extensions = Set(".P", ".swipl", ".pro", ".prolog"))
 
-  case object Julia extends Language(extensions = Set(".jl"), files = Set("Manifest.toml"))
+  case object Julia extends Language(extensions = Set(".jl"), files = Set("Manifest.toml", "Project.toml"))
 
-  case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"))
+  case object OCaml extends Language(extensions = Set(".ml", ".mli", ".mly", ".mll"), files = Set("dune-project"))
 
   case object Solidity extends Language(extensions = Set(".sol"))
 
