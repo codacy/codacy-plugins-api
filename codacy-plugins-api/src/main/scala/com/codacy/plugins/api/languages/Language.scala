@@ -275,7 +275,8 @@ object Languages {
 
   case object R extends Language(extensions = Set(".r", ".rd", ".rsx"), files = Set("renv.lock", ".Rprofile"))
 
-  case object Scratch extends Language(extensions = Set(".scratch", ".sb", ".sprite", ".sb2", ".sprite2", ".sb3"))
+  case object Scratch
+      extends Language(extensions = Set(".scratch", ".sb", ".sprite", ".sb2", ".sprite2", ".sb3", ".sprite3"))
 
   case object Lua extends Language(extensions = Set(".lua", ".luau"))
 
