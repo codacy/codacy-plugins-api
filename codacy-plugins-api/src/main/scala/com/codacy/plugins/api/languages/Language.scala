@@ -94,7 +94,8 @@ object Languages {
                                OCaml,
                                Markdown,
                                ABAP,
-                               Terraform)
+                               Terraform,
+                               Bicep)
 
   // Support startdate: Always
   case object Javascript
@@ -243,6 +244,8 @@ object Languages {
                          Set(".env", ".env.production", ".env.prod", ".env.staging", ".env.dev", ".env.development"))
 
   case object Terraform extends Language(extensions = Set(".tf"))
+
+  case object Bicep extends Language(extensions = Set(".bicep"))
 
   // Support startdate: January 2022
   case object Dart extends Language(extensions = Set(".dart"), files = Set("pubspec.lock"))
