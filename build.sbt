@@ -26,7 +26,7 @@ lazy val `codacy-plugins-api` =
               scmInfo := Some(
                 ScmInfo(url("https://github.com/codacy/codacy-plugins-api"),
                         "scm:git:git@github.com:codacy/codacy-plugins-api.git")),
-              publicMvnPublish)
+              privateMvnPublish)
 
 lazy val root =
   project
