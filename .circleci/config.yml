@@ -31,8 +31,9 @@ workflows:
             - codacy/checkout_and_version
       - codacy/sbt:
           name: publish
+          aws_profile: maven
           cmd: |
-            sbt "clean;retrieveGPGKeys;+publishSigned;sonatypeCentralRelease"
+            sbt "clean;+publish"
           context: CodacyAWS
           no_output_timeout: "30m"
           requires:
