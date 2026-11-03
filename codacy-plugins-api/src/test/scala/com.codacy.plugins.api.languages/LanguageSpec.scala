@@ -33,6 +33,13 @@ class LanguageSpec extends AnyWordSpec with Matchers with OptionValues {
       Languages.forPath("src/File3.mjs").value shouldBe Languages.Javascript
     }
 
+    "forPath resolves the Node.js module-format extensions" in {
+      // CommonJS / ES module variants: .cjs/.mjs for JavaScript, .cts/.mts for TypeScript
+      Languages.forPath("scripts/count-issues.cjs").value shouldBe Languages.Javascript
+      Languages.forPath("src/index.mts").value shouldBe Languages.TypeScript
+      Languages.forPath("src/config.cts").value shouldBe Languages.TypeScript
+    }
+
     "forPath resolves extensions case-insensitively" in {
       // extensions are stored lowercase; lookup lowercases the file's extension too
       Languages.forPath("src/analysis.R").value shouldBe Languages.R

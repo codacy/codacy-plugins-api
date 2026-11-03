@@ -99,7 +99,7 @@ object Languages {
 
   // Support startdate: Always
   case object Javascript
-      extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs"),
+      extends Language(extensions = Set(".js", ".jsx", ".jsm", ".vue", ".mjs", ".cjs"),
                        files = Set("package.json", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
 
   case object Scala extends Language(extensions = Set(".scala"), files = Set("build.sbt.lock"))
@@ -145,7 +145,8 @@ object Languages {
 
   // Support startdate: 24 November 2016
   case object TypeScript
-      extends Language(extensions = Set(".ts", ".tsx"), files = Set("package.json", "package-lock.json", "yarn.lock"))
+      extends Language(extensions = Set(".ts", ".tsx", ".mts", ".cts"),
+                       files = Set("package.json", "package-lock.json", "yarn.lock"))
 
   // Support startdate: December 2016
   case object Dockerfile extends Language(extensions = Set(".dockerfile"), files = Set("Dockerfile"))
